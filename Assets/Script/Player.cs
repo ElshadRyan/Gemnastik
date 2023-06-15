@@ -9,6 +9,7 @@ public class Player: MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     private float moveSpeed = .01f;
     GameManager gm;
+    NPCInteract npcInteract;
 
     
 
@@ -17,6 +18,7 @@ public class Player: MonoBehaviour
         gm = GameManager.Instance;
         gm.playerAttack = 4;
         gm.playerHealth = 20;
+        npcInteract = FindAnyObjectByType<NPCInteract>();
     }
 
     private void Update()
@@ -25,6 +27,15 @@ public class Player: MonoBehaviour
         {
             PlayerMovement();
         }
+
+        if(npcInteract.isInteract)
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                npcInteract.ChangeScene();
+            }
+        }
+
     }
 
     public void PlayerMovement()
@@ -54,13 +65,13 @@ public class Player: MonoBehaviour
 
 
         Vector3 moveDirection = new Vector3(inputVector.y, 0f, inputVector.x);
-        bool canMove = !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Ground"));
+        bool canMove = !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
 
 
         if (!canMove)
         {
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f);
-            canMove = moveDirection.x != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Ground"));
+            canMove = moveDirection.x != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
 
             if (canMove)
             {
@@ -69,7 +80,7 @@ public class Player: MonoBehaviour
             else
             {
                 Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z);
-                canMove = moveDirection.z != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Ground"));
+                canMove = moveDirection.z != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
 
                 if (canMove)
                 {
