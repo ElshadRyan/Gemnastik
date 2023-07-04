@@ -15,7 +15,7 @@ public class NPCInteract : MonoBehaviour
 
     public void ChangeScene()
     {
-        Debug.Log("Masuk");
+        SceneManager.LoadScene("Battle_Scene");
     }
 
 

@@ -28,7 +28,7 @@ public class Player: MonoBehaviour
             PlayerMovement();
         }
 
-        if(npcInteract.isInteract)
+        if(npcInteract)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {

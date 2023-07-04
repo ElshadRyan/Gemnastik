@@ -7,7 +7,12 @@ public class RandomInstantiate : MonoBehaviour
 {
     [SerializeField] private RectTransform button;
     [SerializeField] private Transform parent;
+    [SerializeField] private LevelSO[] levelSO;
+    [SerializeField] private BattleHandler battleHandler;
+    [SerializeField] private Sprite buttonImageDisplaySprite;
+    [SerializeField] private Button buttonImageDisplay;
     private RectTransform[] buttonGameObject = new RectTransform[3];
+    public Sprite[] buttonImage = new Sprite [3];
 
     GameManager gm;
 
@@ -91,12 +96,27 @@ public class RandomInstantiate : MonoBehaviour
     {
         Vector2 position = button.anchoredPosition;
 
-        for(int i = 0; i<3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            buttonGameObject[i] = Instantiate(button, new Vector2(0,0), Quaternion.identity, parent);
+            buttonGameObject[i] = Instantiate(button, new Vector2(0, 0), Quaternion.identity, parent);
+            buttonImageDisplaySprite = buttonImage[i];
+            buttonImageDisplay.image.sprite = buttonImageDisplaySprite;
             buttonGameObject[i].anchoredPosition = position = new Vector2(random[i], 0);
             buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => destroyAll());
+            if(i==0)
+            {
+                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO[battleHandler.stage].Button1());
+            }
+            else if(i==1)
+            {
+                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO[battleHandler.stage].Button2());
+            }
+            else if(i==2)
+            {
+                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO[battleHandler.stage].Button3());
+            }
         }
+
     }
 
     public void destroyAll()

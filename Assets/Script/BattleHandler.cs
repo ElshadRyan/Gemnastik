@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleHandler : MonoBehaviour
 {
@@ -10,13 +11,18 @@ public class BattleHandler : MonoBehaviour
     private Battle battle;
     private Enemy enemy;
     private RandomInstantiate randomInstantiate;
+    private Sprite[] images = new Sprite[3];
 
     [SerializeField] private Transform playerGameObject;
     [SerializeField] private Transform enemyGameObject;
+    [SerializeField] private LevelSO[] levelSO;
 
     private bool isAttack;
     private bool spawn = true;
+    public int stage = 0;
     float timer = 20f;
+    
+
     enum state
     {
         idle,
@@ -87,21 +93,25 @@ public class BattleHandler : MonoBehaviour
         switch (playState)
         {
             case state.idle:
+
+
+
                 timer = 5f;
                 spawn = true;
-                playState = state.attack;              
-                break;
-            case state.attack:
-                isAttack = true;
-
-                if(spawn)
+                if (spawn)
                 {
+                    AssigningImage();
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
                     spawn = false;
                 }
+                playState = state.attack;              
+                break;
+            case state.attack:
+                isAttack = true;                
                 if (gm.isDestroy)
                 {
+
                     PlayerAttackCalculate();
                 }
                 break;
@@ -133,6 +143,17 @@ public class BattleHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         player.PlayAnimation(false);
+    }
+
+    public void AssigningImage()
+    {
+        int i = 0;
+        while(i<3)
+        {
+            images[i] = levelSO[stage].imageJawaban[i];
+            randomInstantiate.buttonImage[i] = images[i];
+            i++;
+        }
     }
 
 }
