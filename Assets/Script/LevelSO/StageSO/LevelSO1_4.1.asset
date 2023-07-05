@@ -17,9 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5e0140d85d677c438e67f2ef8c49e9f, type: 2}
   - {fileID: 11400000, guid: 683c7816d6b7c7a41a066e6f1a26d858, type: 2}
   correctAnswer1: 0
-  correctAnswer2: 0
+  correctAnswer2: 1
   correctAnswer3: 0
-  soal: Wh_r_
+  wrongAnswer: 0
+  soal: Wher_
   imageJawaban:
   - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
   - {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
@@ -33,4 +34,4 @@ MonoBehaviour:
   button2: 0
   button3: 0
   combo: 1
-  comboCounter: 0
+  lastCombo: 0

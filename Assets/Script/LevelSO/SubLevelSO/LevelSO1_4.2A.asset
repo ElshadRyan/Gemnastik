@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
   m_Name: LevelSO1_4.2A
   m_EditorClassIdentifier: 
-  imageJawaban:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   nextCombo:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  correctAnswer1: 1
+  correctAnswer2: 0
+  correctAnswer3: 0
+  wrongAnswer: 0
   soal: Whar_
+  imageJawaban:
+  - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  - {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  - {fileID: 21300000, guid: ae53a7884da90e94eb5dfeab594b746c, type: 3}
   jawabanPanjang:
   - Whare
   - Wharo
@@ -30,3 +34,4 @@ MonoBehaviour:
   button2: 0
   button3: 0
   combo: 0
+  lastCombo: 1

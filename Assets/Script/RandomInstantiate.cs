@@ -110,13 +110,13 @@ public class RandomInstantiate : MonoBehaviour
             {
                 buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO.Button1());
             }
-            if (i==1)
+            else if (i==1)
             {
-                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO.Button1());
+                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO.Button2());
             }
-            if (i==2)
+            else if (i==2)
             {
-                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO.Button1());
+                buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => levelSO.Button3());
             }
         }
 

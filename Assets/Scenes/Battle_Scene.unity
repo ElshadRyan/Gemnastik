@@ -778,6 +778,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 143c95cef394c3c4ca994014280adbe5, type: 2}
   - {fileID: 11400000, guid: 7f2871eab4e32b0458901d704008baee, type: 2}
   - {fileID: 11400000, guid: 7238aeade14151b49b5329b3261f6499, type: 2}
+  - {fileID: 11400000, guid: 7238aeade14151b49b5329b3261f6499, type: 2}
   randomInstantiate: {fileID: 1546358822}
   stage: 0
   playState: 0
@@ -926,7 +927,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 340298854}
   parent: {fileID: 384617645}
-  levelSO: []
   battleHandler: {fileID: 1062054961}
   buttonGameObject:
   - {fileID: 340298854}
@@ -936,6 +936,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
   - {fileID: 21300000, guid: 70e3ce8ad01f39248a3ea97a35bcf238, type: 3}
   - {fileID: 21300000, guid: b85a4b2ec6433d04895612d791edc260, type: 3}
+  levelSO: {fileID: 11400000, guid: 6fd0e754ea5a75d4c942f01d37397efc, type: 2}
 --- !u!224 &1546358823
 RectTransform:
   m_ObjectHideFlags: 0

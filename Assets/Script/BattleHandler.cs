@@ -16,6 +16,7 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private LevelSO[] levelSO;
     [SerializeField] private RandomInstantiate randomInstantiate;
 
+    private int comboCounter;
     private bool isAttack;
     private bool spawn = true;
     public int stage = 0;
@@ -38,6 +39,8 @@ public class BattleHandler : MonoBehaviour
 
         Spawn(true);
         Spawn(false);
+
+        comboCounter = 0;
 
         gm.isBattle = true;        
         player = FindAnyObjectByType<Player>();
@@ -106,7 +109,32 @@ public class BattleHandler : MonoBehaviour
                 if (gm.isDestroy)
                 {
 
-                    PlayerAttackCalculate();
+                    if (!levelSO[stage].wrongAnswer)
+                    {
+                        PlayerAttackCalculate();
+                    }
+                    else if (levelSO[stage].wrongAnswer && levelSO[stage].combo)
+                    {
+                        playState = state.enemy_attack;
+                    }
+                    else if (levelSO[stage].wrongAnswer)
+                    {
+                        playState = state.enemy_attack;
+                    }
+
+                    if (levelSO[stage].combo)
+                    {
+                        playState = state.enemy_attack;
+                    }
+
+                    if(levelSO[stage].lastCombo && !levelSO[stage].wrongAnswer)
+                    {
+                        LastComboCalculate();
+                        gm.playerAttack *= comboCounter;
+                        PlayerAttackCalculate();
+                        playState = state.enemy_attack;
+                    }
+
                 }
                 break;
 
@@ -114,14 +142,28 @@ public class BattleHandler : MonoBehaviour
 
                 gm.isDestroy = false;
                 isAttack = false;
-
-                gm.PlayerDamage();
-                gm.enemyAttack = gm.enemyAttack * 2;
-                Debug.Log("Stage");
-                Debug.Log(stage);
                 stage++;
-                playState = state.idle;
 
+                if(!levelSO[stage].wrongAnswer)
+                {
+                    gm.enemyAttack /= 2;
+                    gm.PlayerDamage();
+                    gm.enemyAttack *= 2;
+                    playState = state.idle;
+
+                }
+                if (!levelSO[stage].combo && levelSO[stage].wrongAnswer)
+                {
+                    gm.PlayerDamage();
+                    playState = state.idle;
+                }
+                else 
+                {
+                    Combo();
+                    playState = state.idle;
+                }
+                
+                
                 break;
         }
     }
@@ -130,8 +172,11 @@ public class BattleHandler : MonoBehaviour
     public void PlayerAttackCalculate()
     {
         player.PlayAnimation(true);
-        gm.enemyAttack = gm.enemyAttack / 2;
         gm.EnemyDamage();
+        if(levelSO[stage].lastCombo)
+        {
+            gm.playerAttack /= comboCounter;
+        }
         StartCoroutine(AnimationTiming());
 
 
@@ -157,4 +202,44 @@ public class BattleHandler : MonoBehaviour
         
     }
 
+    public void LastComboCalculate()
+    {
+        if(levelSO[stage].lastCombo)
+        {
+            if (levelSO[stage].button1 && levelSO[stage].correctAnswer1)
+            {
+                comboCounter++;
+            }
+            if (levelSO[stage].button2 && levelSO[stage].correctAnswer2)
+            {
+                comboCounter++;
+            }
+            if (levelSO[stage].button3 && levelSO[stage].correctAnswer3)
+            {
+                comboCounter++;
+            }
+        }
+    }
+
+    public void Combo()
+    {
+        if (levelSO[stage].combo)
+        {
+            if(levelSO[stage].button1 && levelSO[stage].correctAnswer1)
+            {
+                levelSO[stage] = levelSO[stage].nextCombo[0];
+                comboCounter++;
+            }
+            if (levelSO[stage].button2 && levelSO[stage].correctAnswer2)
+            {
+                levelSO[stage] = levelSO[stage].nextCombo[1];
+                comboCounter++;
+            }
+            if (levelSO[stage].button3 && levelSO[stage].correctAnswer3)
+            {
+                levelSO[stage] = levelSO[stage].nextCombo[2];
+                comboCounter++;
+            }
+        }
+    }
 }
