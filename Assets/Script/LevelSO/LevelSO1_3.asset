@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
   m_Name: LevelSO1_3
   m_EditorClassIdentifier: 
-  nextCombo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  nextCombo: []
   correctAnswer1: 0
   correctAnswer2: 0
   correctAnswer3: 0
   soal: Wh_
   imageJawaban:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  - {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
+  - {fileID: 21300000, guid: ae53a7884da90e94eb5dfeab594b746c, type: 3}
   jawabanPanjang:
   - Whu
   - Wha

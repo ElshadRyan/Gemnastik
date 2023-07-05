@@ -8,14 +8,13 @@ public class BattleHandler : MonoBehaviour
     GameManager gm;
 
     private Player player;
-    private Battle battle;
-    private Enemy enemy;
-    private RandomInstantiate randomInstantiate;
-    private Sprite[] images = new Sprite[3];
+
+    public Sprite[] images;
 
     [SerializeField] private Transform playerGameObject;
     [SerializeField] private Transform enemyGameObject;
     [SerializeField] private LevelSO[] levelSO;
+    [SerializeField] private RandomInstantiate randomInstantiate;
 
     private bool isAttack;
     private bool spawn = true;
@@ -40,17 +39,13 @@ public class BattleHandler : MonoBehaviour
         Spawn(true);
         Spawn(false);
 
-        gm.isBattle = true;
-
-        randomInstantiate = FindAnyObjectByType<RandomInstantiate>();
-        enemy = FindAnyObjectByType<Enemy>();
-        battle = FindAnyObjectByType<Battle>();
+        gm.isBattle = true;        
         player = FindAnyObjectByType<Player>();
 
     }
     private void Update()
     {
-        Timer();
+        //Timer();
         AttackSequence();
     }
 
@@ -93,19 +88,18 @@ public class BattleHandler : MonoBehaviour
         switch (playState)
         {
             case state.idle:
-
-
-
                 timer = 5f;
                 spawn = true;
                 if (spawn)
                 {
+                    randomInstantiate.levelSO = levelSO[stage];
+
                     AssigningImage();
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
                     spawn = false;
                 }
-                playState = state.attack;              
+                playState = state.attack;
                 break;
             case state.attack:
                 isAttack = true;                
@@ -115,13 +109,19 @@ public class BattleHandler : MonoBehaviour
                     PlayerAttackCalculate();
                 }
                 break;
+
             case state.enemy_attack:
+
                 gm.isDestroy = false;
                 isAttack = false;
 
                 gm.PlayerDamage();
-                gm.enemyAttack = gm.enemyAttack * 2;                               
-                playState = state.idle;                
+                gm.enemyAttack = gm.enemyAttack * 2;
+                Debug.Log("Stage");
+                Debug.Log(stage);
+                stage++;
+                playState = state.idle;
+
                 break;
         }
     }
@@ -147,13 +147,14 @@ public class BattleHandler : MonoBehaviour
 
     public void AssigningImage()
     {
-        int i = 0;
-        while(i<3)
+        Sprite sprite;
+        for(int i = 0; i<images.Length; i++)
         {
-            images[i] = levelSO[stage].imageJawaban[i];
+            sprite = levelSO[stage].imageJawaban[i];
+            images[i] = sprite;
             randomInstantiate.buttonImage[i] = images[i];
-            i++;
         }
+        
     }
 
 }

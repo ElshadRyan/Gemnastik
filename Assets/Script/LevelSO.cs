@@ -24,7 +24,9 @@ public class LevelSO : ScriptableObject
 
     public void Button1()
     {
-        if (button1)
+        button1 = true;
+        Debug.Log("Button1 Masuk");
+        /*if (button1)
         {
             soal = jawabanPanjang[0];
             if (correctAnswer1)
@@ -36,12 +38,14 @@ public class LevelSO : ScriptableObject
                 }
             }
 
-        }
+        }*/
     }
 
     public void Button2()
     {
-        if (button2)
+        Debug.Log("Button2 Masuk");
+        button2 = true;
+        /*if (button2)
         {
             soal = jawabanPanjang[1];
             if (correctAnswer2)
@@ -53,14 +57,16 @@ public class LevelSO : ScriptableObject
                 }
 
             }
-        }
+        }*/
 
 
     }
 
     public void Button3()
     {
-        if (button3)
+        Debug.Log("Button3 Masuk");
+        button3 = true;
+       /* if (button3)
         {
             soal = jawabanPanjang[2];
             if (correctAnswer3)
@@ -71,7 +77,7 @@ public class LevelSO : ScriptableObject
                     //nextCombo[0]
                 }
             }
-        }
+        }*/
     }       
         
 }
