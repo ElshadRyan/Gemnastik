@@ -20,6 +20,8 @@ public class LevelSO : ScriptableObject
     public bool button3 = false;
     public bool combo;
     public bool lastCombo;
+    public bool timeIsUp;
+    
     public void Button1()
     {
         button1 = true;
@@ -39,7 +41,7 @@ public class LevelSO : ScriptableObject
         if (button2)
         {
             soal = jawabanPanjang[1];
-            if(!correctAnswer2)
+            if (!correctAnswer2)
             {
                 wrongAnswer = true;
             }
@@ -59,6 +61,14 @@ public class LevelSO : ScriptableObject
                 wrongAnswer = true;
             }
         }
-    }       
-        
+    }
+
+    public void SetAllToFalse()
+    {
+        button1 = false;
+        button2 = false;
+        button3 = false;
+        wrongAnswer = false;
+        timeIsUp = false;
+    }
 }

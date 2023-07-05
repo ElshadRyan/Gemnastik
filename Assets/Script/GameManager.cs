@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
     public int playerAttack;
     public int enemyHealth;
     public int enemyAttack;
-    public int stage = 1;
-    public int subStage = 1;
+    public int stage = 0;
+    public int level = 0;
 
+    public bool battleEnd = false;
     public bool isBattle = false;
     public bool isDestroy = false;
 
@@ -32,10 +33,11 @@ public class GameManager : MonoBehaviour
     {
         enemyHealth -= playerAttack;
         Debug.Log(enemyHealth);
-        if (enemyHealth <= 0)
+        if (enemyHealth <= 0 && battleEnd)
         {
             isBattle = false;
             Debug.Log("You Win");
+            stage++;
             SceneManager.LoadScene("WorldMap");
         }
     }
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         playerHealth -= enemyAttack;
         Debug.Log(playerHealth);
-        if (playerHealth <= 0)
+        if (playerHealth <= 0 && battleEnd)
         {
             isBattle = false;
             Debug.Log("You Lose");
