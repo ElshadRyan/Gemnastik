@@ -51,7 +51,7 @@ public class BattleHandler : MonoBehaviour
     }
     private void Update()
     {
-        Timer();
+        //Timer();
         AttackSequence();
         if(levelLength == gm.level)
         {
@@ -123,31 +123,46 @@ public class BattleHandler : MonoBehaviour
                         playState = state.enemy_attack;
                     }
 
-                    else if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                    if (stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                    {
+                        Combo();
+                        playState = state.enemy_attack;
+                    }
+
+                    else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
+                    {
+                        if(!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                        {
+                            LastComboCalculate();
+                        }
+                        if(comboCounter > 0)
+                        {
+                            gm.playerAttack *= comboCounter;
+                            PlayerAttackCalculate();
+                            playState = state.enemy_attack;
+                        }
+
+                        else if(comboCounter <= 0)
+                        {
+
+                        }
+
+                    }                    
+                    else if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
                     {
                         PlayerAttackCalculate();
+                    }
+                    else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+                    {
+                        playState = state.enemy_attack;
                     }
                     else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && stageSO[gm.stage].levelSO[gm.level].combo)
                     {
                         playState = state.enemy_attack;
                     }
-                    else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                    {
-                        playState = state.enemy_attack;
-                    }
+                    
 
-                    if (stageSO[gm.stage].levelSO[gm.level].combo)
-                    {
-                        playState = state.enemy_attack;
-                    }
-
-                    else if(stageSO[gm.stage].levelSO[gm.level].lastCombo && !stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                    {
-                        LastComboCalculate();
-                        gm.playerAttack *= comboCounter;
-                        PlayerAttackCalculate();
-                        playState = state.enemy_attack;
-                    }
+                    
 
                     
 
@@ -158,9 +173,18 @@ public class BattleHandler : MonoBehaviour
 
                 gm.isDestroy = false;
                 isAttack = false;
-                
 
-                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                if (stageSO[gm.stage].levelSO[gm.level].combo)
+                {                    
+                    playState = state.idle;
+                }
+                else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
+                {
+                    gm.PlayerDamage();
+                    playState = state.idle;
+                }
+
+                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
                 {
                     gm.enemyAttack /= 2;
                     gm.PlayerDamage();
@@ -168,7 +192,7 @@ public class BattleHandler : MonoBehaviour
                     playState = state.idle;
 
                 }
-                else if (!stageSO[gm.stage].levelSO[gm.level].combo && stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
                 {
                     gm.PlayerDamage();
                     playState = state.idle;
@@ -178,11 +202,7 @@ public class BattleHandler : MonoBehaviour
                     gm.PlayerDamage();
                     playState = state.idle;
                 }
-                else
-                {
-                    Combo();
-                    playState = state.idle;
-                }
+                
                 stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 gm.level++;
                 break;
@@ -227,6 +247,7 @@ public class BattleHandler : MonoBehaviour
     {
         if(stageSO[gm.stage].levelSO[gm.level].lastCombo)
         {
+            Debug.Log("ComboMasuk");
             if (stageSO[gm.stage].levelSO[gm.level].button1 && stageSO[gm.stage].levelSO[gm.level].correctAnswer1)
             {
                 comboCounter++;
