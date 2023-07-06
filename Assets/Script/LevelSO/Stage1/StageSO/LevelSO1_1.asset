@@ -20,7 +20,7 @@ MonoBehaviour:
   soal: What
   imageJawaban:
   - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
-  - {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  - {fileID: 21300000, guid: a3ced8f7044b9de4787602a9e9b20ea7, type: 3}
   - {fileID: 21300000, guid: ae53a7884da90e94eb5dfeab594b746c, type: 3}
   jawabanPanjang:
   - Whut

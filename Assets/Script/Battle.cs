@@ -25,6 +25,6 @@ public class Battle : MonoBehaviour
     IEnumerator AnimationTiming()
     {
         yield return new WaitForSeconds(.5f);
-        player.PlayAnimation(false);
+        player.AttackAnimation(false);
     }
 }

@@ -28,28 +28,34 @@ public class GameManager : MonoBehaviour
     }
 
     
-
-    public void EnemyDamage()
+    public void BattleEnd()
     {
-        enemyHealth -= playerAttack;
-        Debug.Log(enemyHealth);
-        if (enemyHealth <= 0 || battleEnd)
+        if (enemyHealth < playerHealth && battleEnd)
         {
             isBattle = false;
             Debug.Log("You Win");
             SceneManager.LoadScene("WorldMap");
         }
+
+        else if (enemyHealth > playerHealth && battleEnd)
+        {
+            isBattle = false;
+            Debug.Log("You Lose");
+            SceneManager.LoadScene("WorldMap");
+        }
+    }
+
+    public void EnemyDamage()
+    {
+        enemyHealth -= playerAttack;
+        Debug.Log(enemyHealth);
+        
     }
 
     public void PlayerDamage()
     {
         playerHealth -= enemyAttack;
         Debug.Log(playerHealth);
-        if (enemyHealth <= 0 || battleEnd)
-        {
-            isBattle = false;
-            Debug.Log("You Lose");
-            SceneManager.LoadScene("WorldMap");
-        }
+        
     }
 }

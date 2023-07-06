@@ -7,6 +7,8 @@ public class Player: MonoBehaviour
     [SerializeField] private Animator animationPlayer;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Rigidbody playerRigidbody;
+    [SerializeField] private float RotateSpeed = 10f;
+
     private float moveSpeed = .01f;
     GameManager gm;
     NPCInteract npcInteract;
@@ -17,7 +19,7 @@ public class Player: MonoBehaviour
     {
         gm = GameManager.Instance;
         gm.playerAttack = 4;
-        gm.playerHealth = 20;
+        gm.playerHealth = 30;
         npcInteract = FindAnyObjectByType<NPCInteract>();
     }
 
@@ -45,24 +47,19 @@ public class Player: MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             inputVector.x = +moveSpeed;
-            transform.LookAt(transform.position + new Vector3(0, 0, 1));
         }
         if (Input.GetKey(KeyCode.A))
         {
             inputVector.y = -moveSpeed;
-            transform.LookAt(transform.position + new Vector3(-1, 0, 0));
         }
         if (Input.GetKey(KeyCode.S))
         {
             inputVector.x = -moveSpeed;
-            transform.LookAt(transform.position + new Vector3(0, 0, -1));
         }
         if (Input.GetKey(KeyCode.D))
         {
             inputVector.y = +moveSpeed;
-            transform.LookAt(transform.position + new Vector3(1, 0, 0));
         }
-
 
         Vector3 moveDirection = new Vector3(inputVector.y, 0f, inputVector.x);
         bool canMove = !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
@@ -89,18 +86,33 @@ public class Player: MonoBehaviour
             }
         }
 
-
-
         if (canMove)
         {
             transform.position += moveDirection;
         }
-
+        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * RotateSpeed);
+        if(moveDirection != Vector3.zero)
+        {
+            Walking(true);
+        }
+        else
+        {
+            Walking(false);
+        }
     }
 
-    public void PlayAnimation(bool isAttack)
+    
+
+    public void AttackAnimation(bool isAttack)
     {
         animationPlayer.SetBool("Attack", isAttack);
     }
+
+    public void Walking(bool walking)
+    {
+        animationPlayer.SetBool("IsWalking", walking);
+    }
+
+    
 
 }

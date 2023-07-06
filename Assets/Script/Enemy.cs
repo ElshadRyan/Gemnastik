@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     {
         gm = GameManager.Instance;
         gm.enemyAttack = 4;
-        gm.enemyHealth = 20;
+        gm.enemyHealth = 30;
     }
 
 }
