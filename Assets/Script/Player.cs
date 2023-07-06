@@ -67,7 +67,7 @@ public class Player: MonoBehaviour
 
         if (!canMove)
         {
-            Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f);
+            Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f).normalized;
             canMove = moveDirection.x != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
 
             if (canMove)
@@ -76,7 +76,7 @@ public class Player: MonoBehaviour
             }
             else
             {
-                Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z);
+                Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z).normalized;
                 canMove = moveDirection.z != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
 
                 if (canMove)
@@ -88,9 +88,9 @@ public class Player: MonoBehaviour
 
         if (canMove)
         {
+            transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * RotateSpeed);
             transform.position += moveDirection;
         }
-        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * RotateSpeed);
         if(moveDirection != Vector3.zero)
         {
             Walking(true);
