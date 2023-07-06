@@ -35,7 +35,7 @@ public class RandomInstantiate : MonoBehaviour
             {
                 if(!is25)
                 {
-                    random[i] = -150;
+                    random[i] = -350;
                     is25 = true;
                 }
                 else if(is25 && !is50 || !is50 && is75)
@@ -45,7 +45,7 @@ public class RandomInstantiate : MonoBehaviour
                 }
                 else if(is25 && !is75 || !is75 && is50)
                 {
-                    random[i] = 150;
+                    random[i] = 350;
                     is75 = true;
                 }
             }
@@ -59,12 +59,12 @@ public class RandomInstantiate : MonoBehaviour
 
                 else if (!is25 && is50 || !is25 && is75)
                 {
-                    random[i] = -150;
+                    random[i] = -350;
                     is25 = true;
                 }
                 else if(is50 && !is75 || is25 && !is75)
                 {
-                    random[i] = 150;
+                    random[i] = 350;
                     is75 = true;
                 }
             }
@@ -72,13 +72,13 @@ public class RandomInstantiate : MonoBehaviour
             {
                 if(!is75)
                 {
-                    random[i] = 150;
+                    random[i] = 350;
                     is75 = true;
                 }
 
                 else if (!is25 && !is50 || !is25 && is50)
                 {
-                    random[i] = -150;
+                    random[i] = -350;
                     is25 = true;
                 }
 

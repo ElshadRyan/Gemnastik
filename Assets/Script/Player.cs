@@ -9,7 +9,7 @@ public class Player: MonoBehaviour
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private float RotateSpeed = 10f;
 
-    private float moveSpeed = .01f;
+    private float moveSpeed = 5f;
     GameManager gm;
     NPCInteract npcInteract;
 
@@ -42,7 +42,9 @@ public class Player: MonoBehaviour
 
     public void PlayerMovement()
     {
-        Vector2 inputVector = new Vector2(0, 0);
+        Vector2 inputVector = new Vector2();
+        Vector3 colliderSize = new Vector3( 1, 1, .5f);
+        float MoveDistance = moveSpeed * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -61,14 +63,14 @@ public class Player: MonoBehaviour
             inputVector.y = +moveSpeed;
         }
 
-        Vector3 moveDirection = new Vector3(inputVector.y, 0f, inputVector.x);
-        bool canMove = !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
+        Vector3 moveDirection = new Vector3(inputVector.y, 0f, inputVector.x).normalized;
+        bool canMove = !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, MoveDistance, LayerMask.GetMask("Default"));
 
 
         if (!canMove)
         {
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f).normalized;
-            canMove = moveDirection.x != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
+            canMove = moveDirection.x != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, MoveDistance, LayerMask.GetMask("Default"));
 
             if (canMove)
             {
@@ -77,7 +79,7 @@ public class Player: MonoBehaviour
             else
             {
                 Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z).normalized;
-                canMove = moveDirection.z != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, moveSpeed, LayerMask.GetMask("Default"));
+                canMove = moveDirection.z != 0 && !Physics.BoxCast(playerTransform.position, transform.localScale / 2, moveDirection, Quaternion.identity, MoveDistance, LayerMask.GetMask("Default"));
 
                 if (canMove)
                 {
@@ -88,10 +90,11 @@ public class Player: MonoBehaviour
 
         if (canMove)
         {
-            transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * RotateSpeed);
-            transform.position += moveDirection;
+            transform.position += moveDirection * MoveDistance;
         }
-        if(moveDirection != Vector3.zero)
+
+        transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * RotateSpeed);
+        if (moveDirection != Vector3.zero)
         {
             Walking(true);
         }
@@ -111,8 +114,6 @@ public class Player: MonoBehaviour
     public void Walking(bool walking)
     {
         animationPlayer.SetBool("IsWalking", walking);
-    }
-
-    
+    }   
 
 }
