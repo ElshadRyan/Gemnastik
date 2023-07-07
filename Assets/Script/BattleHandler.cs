@@ -2,19 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BattleHandler : MonoBehaviour
 {
     GameManager gm;
 
     private Player player;
+    private Sprite soalImages;
+    public Sprite images;
 
-    public Sprite[] images;
-
-    [SerializeField] private Transform playerGameObject;
     [SerializeField] private Transform enemyGameObject;
+    [SerializeField] private Transform playerGameObject;
     [SerializeField] private StageSO[] stageSO;
     [SerializeField] private RandomInstantiate randomInstantiate;
+    [SerializeField] private TextMeshProUGUI textSoal;
+    [SerializeField] private SetUIPosition setUIPosition;
+    [SerializeField] private string[] text = new string[3];
+
 
     private int comboCounter;
     private int levelLength;
@@ -42,7 +47,7 @@ public class BattleHandler : MonoBehaviour
         Spawn(true);
         Spawn(false);
 
-        gm.stage = 0;
+        gm.stage = 1;
         gm.level = 0;
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
@@ -80,17 +85,21 @@ public class BattleHandler : MonoBehaviour
     public void Spawn(bool IsPlayer)
     {
         Vector3 position;
+        Vector3 rotation;
 
         if (IsPlayer)
         {
             position = new Vector3 (5, 0, 0);
-            Instantiate(playerGameObject, position, Quaternion.identity);
+            rotation = new Vector3(0, -90, 0);
+            Instantiate(playerGameObject, position, Quaternion.Euler(rotation));
 
         }
         else
         {
+
             position = new Vector3(-5, 0, 0);
-            Instantiate(enemyGameObject, position, Quaternion.identity);
+            rotation = new Vector3(0, 90, 0);
+            Instantiate(enemyGameObject, position, Quaternion.Euler(rotation));
 
         }
     }
@@ -101,109 +110,38 @@ public class BattleHandler : MonoBehaviour
         switch (playState)
         {
             case state.idle:
-                Debug.Log(gm.level);
                 timer = 5f;
                 spawn = true;
                 if (spawn)
                 {
                     randomInstantiate.levelSO = stageSO[gm.stage].levelSO[gm.level];
-
+                    AssigningAnswer();
+                    AssigningImageSoal();
                     AssigningImage();
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
                     spawn = false;
                 }
+                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 playState = state.attack;
                 break;
             case state.attack:
-                isAttack = true;                
-                if (gm.isDestroy)
-                {
-                    Debug.Log(stageSO[gm.stage].levelSO[gm.level].wrongAnswer);
-                    if (stageSO[gm.stage].levelSO[gm.level].timeIsUp)
-                    {
-                        stageSO[gm.stage].levelSO[gm.level].wrongAnswer = true;
-                        playState = state.enemy_attack;
-                    }
-                    if (stageSO[gm.stage].levelSO[gm.level].combo)
-                    {
-                        if(!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                        {
-                            Combo();
-                            playState = state.enemy_attack;
-                        }
-                        if(stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                        {
-                            playState = state.enemy_attack;
-                        }
-                    }
+                isAttack = true;
 
-                    else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                    {
-                        if(!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                        {
-                            LastComboCalculate();
-                        }
-                        if(comboCounter > 0)
-                        {
-                            gm.playerAttack *= comboCounter;
-                            PlayerAttackCalculate();
-                            playState = state.enemy_attack;
-                        }
+                WhenClicked();
 
-                        else if(comboCounter <= 0)
-                        {
-                            playState = state.enemy_attack;
-                        }
-
-                    }                    
-                    if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                    {
-                        PlayerAttackCalculate();
-                    }
-                    else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                    {
-                        playState = state.enemy_attack;
-                    }                                        
-                  
-                }
                 break;
 
             case state.enemy_attack:
                 gm.isDestroy = false;
                 isAttack = false;
 
-                if (stageSO[gm.stage].levelSO[gm.level].combo)
-                {
-                    Debug.Log("Masuk Combo");
-                    playState = state.after_attack;
-                }
-                else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                {
-                    Debug.Log("Masuk Last Combo");
-                    gm.PlayerDamage();
-                    playState = state.after_attack;
-                }
+                AfterClicked();
 
-                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                {
-                    gm.enemyAttack /= 2;
-                    gm.PlayerDamage();
-                    gm.enemyAttack *= 2;
-                    playState = state.after_attack;
-
-                }
-                else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-                {
-                    gm.PlayerDamage();
-                    playState = state.after_attack;
-                }
-
-                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 break;
             case state.after_attack:
-                
-                if(levelLength == gm.level)
+                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
+                if (levelLength == gm.level)
                 {
                     lastBattle = true;
                 }
@@ -214,7 +152,7 @@ public class BattleHandler : MonoBehaviour
                     playState = state.idle;
                 }
 
-                if(lastBattle)
+                if(lastBattle || gm.enemyHealth <= 0 || gm.playerHealth<=0)
                 {
                     gm.battleEnd = true;
                     gm.BattleEnd();
@@ -248,15 +186,28 @@ public class BattleHandler : MonoBehaviour
     public void AssigningImage()
     {
         Sprite sprite;
-        for(int i = 0; i<images.Length; i++)
-        {
-            sprite = stageSO[gm.stage].levelSO[gm.level].imageJawaban[i];
-            images[i] = sprite;
-            randomInstantiate.buttonImage[i] = images[i];
-        }
+        
+        
+            sprite = stageSO[gm.stage].levelSO[gm.level].imageJawaban;
+            images = sprite;
+            randomInstantiate.buttonImage = images;
+        
         
     }
 
+    public void AssigningAnswer()
+    {
+        for(int i =  0; i<3; i++)
+        {
+            text[i] = stageSO[gm.stage].levelSO[gm.level].jawabanSingkat[i];
+            randomInstantiate.text[i] = text[i];
+        }
+    }
+    public void AssigningImageSoal()
+    {
+        soalImages = stageSO[gm.stage].levelSO[gm.level].imageSoal;
+        setUIPosition.imageSoal = soalImages;
+    }
     public void LastComboCalculate()
     {
         if(stageSO[gm.stage].levelSO[gm.level].lastCombo)
@@ -298,4 +249,90 @@ public class BattleHandler : MonoBehaviour
            
         }
     }
+
+    public void WhenClicked()
+    {
+        textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
+        if (gm.isDestroy)
+        {
+
+            Debug.Log(stageSO[gm.stage].levelSO[gm.level].wrongAnswer);
+            if (stageSO[gm.stage].levelSO[gm.level].timeIsUp)
+            {
+                stageSO[gm.stage].levelSO[gm.level].wrongAnswer = true;
+                playState = state.enemy_attack;
+            }
+            if (stageSO[gm.stage].levelSO[gm.level].combo)
+            {
+                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                {
+                    Combo();
+                    playState = state.enemy_attack;
+                }
+                if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                {
+                    playState = state.enemy_attack;
+                }
+            }
+
+            else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+                {
+                    LastComboCalculate();
+                }
+                if (comboCounter > 0)
+                {
+                    gm.playerAttack *= comboCounter;
+                    PlayerAttackCalculate();
+                    playState = state.enemy_attack;
+                }
+
+                else if (comboCounter <= 0)
+                {
+                    playState = state.enemy_attack;
+                }
+
+            }
+            if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                PlayerAttackCalculate();
+            }
+            else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                playState = state.enemy_attack;
+            }
+
+        }
+    }
+
+    public void AfterClicked()
+    {
+        textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
+        if (stageSO[gm.stage].levelSO[gm.level].combo)
+        {
+            playState = state.after_attack;
+        }
+        else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
+        {
+            gm.PlayerDamage();
+            playState = state.after_attack;
+        }
+
+        if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+        {
+            gm.enemyAttack /= 2;
+            gm.PlayerDamage();
+            gm.enemyAttack *= 2;
+            playState = state.after_attack;
+
+        }
+        else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+        {
+            gm.PlayerDamage();
+            playState = state.after_attack;
+        }
+    }
+
+    
 }
