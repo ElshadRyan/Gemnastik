@@ -30,14 +30,14 @@ public class GameManager : MonoBehaviour
     
     public void BattleEnd()
     {
-        if (enemyHealth < playerHealth && battleEnd)
+        if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0)
         {
             isBattle = false;
             Debug.Log("You Win");
             SceneManager.LoadScene("WorldMap");
         }
 
-        else if (enemyHealth > playerHealth && battleEnd)
+        else if (enemyHealth > playerHealth && battleEnd || playerHealth <= 0)
         {
             isBattle = false;
             Debug.Log("You Lose");

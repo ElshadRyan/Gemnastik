@@ -16,13 +16,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7340989895da96a4c80cf0f33f7cd84b, type: 2}
   - {fileID: 11400000, guid: 07881db7220c63c48bd35c455cc20551, type: 2}
   - {fileID: 11400000, guid: 9b4727bfeafe709409af27153109e3af, type: 2}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: 15ff18b0792813049b898fbdada9ad0d, type: 3}
   correctAnswer1: 0
   correctAnswer2: 1
   correctAnswer3: 0
   wrongAnswer: 0
   soal: _l_ssroom
-  soalTemp: 
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  soalTemp: _l_ssroom
   jawabanPanjang:
   - Al_ssroom
   - Cl_ssroom

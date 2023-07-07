@@ -16,13 +16,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: 6eb0a635eb0a14847892d6169aaa8369, type: 3}
   correctAnswer1: 1
   correctAnswer2: 0
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Oighlight_r
   soalTemp: 
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
   jawabanPanjang:
   - Oighlighter
   - Oighlightur

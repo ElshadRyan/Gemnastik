@@ -9,7 +9,7 @@ public class BattleHandler : MonoBehaviour
     GameManager gm;
 
     private Player player;
-
+    private Sprite soalImages;
     public Sprite images;
 
     [SerializeField] private Transform enemyGameObject;
@@ -17,7 +17,9 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private StageSO[] stageSO;
     [SerializeField] private RandomInstantiate randomInstantiate;
     [SerializeField] private TextMeshProUGUI textSoal;
+    [SerializeField] private SetUIPosition setUIPosition;
     [SerializeField] private string[] text = new string[3];
+
 
     private int comboCounter;
     private int levelLength;
@@ -45,7 +47,7 @@ public class BattleHandler : MonoBehaviour
         Spawn(true);
         Spawn(false);
 
-        gm.stage = 0;
+        gm.stage = 1;
         gm.level = 0;
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
@@ -114,7 +116,7 @@ public class BattleHandler : MonoBehaviour
                 {
                     randomInstantiate.levelSO = stageSO[gm.stage].levelSO[gm.level];
                     AssigningAnswer();
-
+                    AssigningImageSoal();
                     AssigningImage();
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
@@ -150,7 +152,7 @@ public class BattleHandler : MonoBehaviour
                     playState = state.idle;
                 }
 
-                if(lastBattle)
+                if(lastBattle || gm.enemyHealth <= 0 || gm.playerHealth<=0)
                 {
                     gm.battleEnd = true;
                     gm.BattleEnd();
@@ -200,6 +202,11 @@ public class BattleHandler : MonoBehaviour
             text[i] = stageSO[gm.stage].levelSO[gm.level].jawabanSingkat[i];
             randomInstantiate.text[i] = text[i];
         }
+    }
+    public void AssigningImageSoal()
+    {
+        soalImages = stageSO[gm.stage].levelSO[gm.level].imageSoal;
+        setUIPosition.imageSoal = soalImages;
     }
     public void LastComboCalculate()
     {
@@ -304,12 +311,10 @@ public class BattleHandler : MonoBehaviour
         textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
         if (stageSO[gm.stage].levelSO[gm.level].combo)
         {
-            Debug.Log("Masuk Combo");
             playState = state.after_attack;
         }
         else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
         {
-            Debug.Log("Masuk Last Combo");
             gm.PlayerDamage();
             playState = state.after_attack;
         }
@@ -328,4 +333,6 @@ public class BattleHandler : MonoBehaviour
             playState = state.after_attack;
         }
     }
+
+    
 }

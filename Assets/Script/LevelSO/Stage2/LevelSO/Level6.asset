@@ -16,13 +16,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: 239d4813bbd89874bb18d14d2e5221fe, type: 3}
   correctAnswer1: 0
   correctAnswer2: 0
   correctAnswer3: 1
   wrongAnswer: 0
   soal: _lobe
-  soalTemp: 
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  soalTemp: _lobe
   jawabanPanjang:
   - Blobe
   - Hlobe

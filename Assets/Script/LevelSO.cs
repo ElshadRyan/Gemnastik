@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class LevelSO : ScriptableObject
 {
     public LevelSO[] nextCombo = new LevelSO[3];
+    public Sprite imageJawaban;
+    public Sprite imageSoal;
+
     public bool correctAnswer1;
     public bool correctAnswer2;
     public bool correctAnswer3;
     public bool wrongAnswer;
     public string soal;
     public string soalTemp;
-    public Sprite imageJawaban; 
     public string[] jawabanPanjang = new string[3];
     public string[] jawabanSingkat = new string[3];
     public bool button1 = false;

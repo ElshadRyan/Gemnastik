@@ -16,13 +16,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: f129763d6d09dd14eab625d8941405fd, type: 3}
   correctAnswer1: 0
   correctAnswer2: 1
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Er_ser
-  soalTemp: 
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  soalTemp: Er_ser
   jawabanPanjang:
   - Ereser
   - Eraser

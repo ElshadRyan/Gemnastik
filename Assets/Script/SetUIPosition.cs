@@ -7,11 +7,13 @@ public class SetUIPosition : MonoBehaviour
 {
     GameManager gm;
     [SerializeField] private RectTransform rectTransform;
-    [SerializeField] private Image image;
+
     private int height1;
     private int height2;
     private int height;
 
+    public Image image;
+    public Sprite imageSoal;
 
     private void Start()
     {
@@ -35,8 +37,9 @@ public class SetUIPosition : MonoBehaviour
             rectTransform.anchoredPosition = position;
         }
         else
-        {
+        {            
             image.gameObject.SetActive(true);
+            image.sprite = imageSoal;
             height = height1;
             rectTransform.anchoredPosition = position;
         }
