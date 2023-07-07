@@ -12,19 +12,22 @@ public class LevelSO : ScriptableObject
     public bool correctAnswer3;
     public bool wrongAnswer;
     public string soal;
-    public Sprite[] imageJawaban = new Sprite[3];
+    public string soalTemp;
+    public Sprite imageJawaban; 
     public string[] jawabanPanjang = new string[3];
-    public char[] jawabanSingkat = new char[3];
+    public string[] jawabanSingkat = new string[3];
     public bool button1 = false;
     public bool button2 = false;
     public bool button3 = false;
     public bool combo;
     public bool lastCombo;
     public bool timeIsUp;
+    public bool isPressed;
     
     public void Button1()
     {
         button1 = true;
+        isPressed = true;
         if (button1)
         {
             soal = jawabanPanjang[0];
@@ -38,6 +41,7 @@ public class LevelSO : ScriptableObject
     public void Button2()
     {
         button2 = true;
+        isPressed = true;
         if (button2)
         {
             soal = jawabanPanjang[1];
@@ -46,13 +50,12 @@ public class LevelSO : ScriptableObject
                 wrongAnswer = true;
             }
         }
-
-
     }
 
     public void Button3()
     {
         button3 = true;
+        isPressed = true;
         if (button3)
         {
             soal = jawabanPanjang[2];
@@ -65,10 +68,21 @@ public class LevelSO : ScriptableObject
 
     public void SetAllToFalse()
     {
+        
         button1 = false;
         button2 = false;
         button3 = false;
         wrongAnswer = false;
         timeIsUp = false;
+        if(isPressed)
+        {
+            soal = soalTemp;
+        }
+        else if(!isPressed)
+        {
+            Debug.Log("Masuk");
+            soalTemp = soal;
+        }
+        isPressed = false;
     }
 }

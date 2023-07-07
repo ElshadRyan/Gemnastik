@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
+  m_Name: Level7.C1
+  m_EditorClassIdentifier: 
+  nextCombo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  correctAnswer1: 1
+  correctAnswer2: 0
+  correctAnswer3: 0
+  wrongAnswer: 0
+  soal: Oighlaght_r
+  soalTemp: 
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  jawabanPanjang:
+  - Oighlaghter
+  - Oighlaghtur
+  - Oighlaghtar
+  jawabanSingkat:
+  - E
+  - U
+  - A
+  button1: 0
+  button2: 0
+  button3: 0
+  combo: 0
+  lastCombo: 1
+  timeIsUp: 0
+  isPressed: 0

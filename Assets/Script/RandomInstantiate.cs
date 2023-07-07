@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RandomInstantiate : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class RandomInstantiate : MonoBehaviour
     [SerializeField] private Transform parent;
     [SerializeField] private BattleHandler battleHandler;
     [SerializeField] private RectTransform[] buttonGameObject = new RectTransform[3];
-    public Sprite[] buttonImage = new Sprite [3];
+    [SerializeField] public string[] text;
+
+    public Sprite buttonImage;
     public LevelSO levelSO;
 
 
@@ -99,11 +102,11 @@ public class RandomInstantiate : MonoBehaviour
         {
 
             
-            buttonGameObject[i].anchoredPosition = position = new Vector2(random[i], 0);
+            buttonGameObject[i].anchoredPosition = position = new Vector2(random[i], -350);
             buttonGameObject[i].gameObject.SetActive(true);
 
-            buttonGameObject[i].GetComponent<Image>().sprite = buttonImage[i];
-
+            buttonGameObject[i].GetComponent<Image>().sprite = buttonImage;
+            buttonGameObject[i].GetComponentInChildren<TextMeshProUGUI>().text = text[i];
             buttonGameObject[i].GetComponent<Button>().onClick.AddListener(() => Invisible());
 
             if (i==0)
