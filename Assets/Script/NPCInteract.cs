@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class NPCInteract : MonoBehaviour
 {
     [SerializeField] private BoxCollider boxCollider;
+    GameManager gm;
     public bool isInteract { get;  private set; }
-    
 
+    private void Start()
+    {
+        gm = GameManager.Instance;
+    }
     private void Update()
     {
     }

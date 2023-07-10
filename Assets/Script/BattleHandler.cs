@@ -159,7 +159,6 @@ public class BattleHandler : MonoBehaviour
             case state.enemy_attack:
                 gm.isDestroy = false;
                 isAttack = false;
-                player.AttackAnimation(false);
 
                 player.IsAttack(false);
                 enemy.Damage(false);
@@ -198,11 +197,6 @@ public class BattleHandler : MonoBehaviour
         playState = state.enemy_attack;
     }
 
-    IEnumerator AnimationTiming()
-    {
-        yield return new WaitForSeconds(.5f);
-        player.AttackAnimation(false);
-    }
 
     public void AssigningImage()
     {
@@ -409,6 +403,7 @@ public class BattleHandler : MonoBehaviour
 
             if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
             {
+                PlayerPrefs.SetInt("Stage", gm.stage++);
                 gm.battleEnd = true;
                 gm.BattleEnd();
             }

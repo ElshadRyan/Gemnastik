@@ -29,7 +29,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    
+    private void Start()
+    {
+        stage = PlayerPrefs.GetInt("Stage");
+    }
+
     public void BattleEnd()
     {
         if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0)

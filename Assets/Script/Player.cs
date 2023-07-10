@@ -26,7 +26,8 @@ public class Player: MonoBehaviour
 
     private void Update()
     {
-        if(gm.isBattle == false)
+
+        if (gm.isBattle == false)
         {
             PlayerMovement();
         }
@@ -107,10 +108,6 @@ public class Player: MonoBehaviour
 
     
 
-    public void AttackAnimation(bool isAttack)
-    {
-        animationPlayer.SetBool("Attack", isAttack);
-    }
 
     public void Walking(bool walking)
     {

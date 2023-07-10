@@ -533,7 +533,7 @@ Transform:
   - {fileID: 1574709205}
   - {fileID: 917126935}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -50, z: 0}
 --- !u!1001 &358605032
 PrefabInstance:
@@ -674,7 +674,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &439774503 stripped
 Transform:
@@ -750,7 +750,7 @@ Transform:
   m_Children:
   - {fileID: 68879557}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 24.78, y: 45, z: 0}
 --- !u!1001 &712414942
 PrefabInstance:
@@ -1131,6 +1131,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef58e67ba5383f0469c84ee6c46efb60, type: 3}
+--- !u!1001 &1150956523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.7949209
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8335991
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.198522
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830965181021828575, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741238098209955947, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
+      propertyPath: m_Name
+      value: Dania
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3b49ea788bf3a64ab715c5ceb5f09e4, type: 3}
 --- !u!1 &1192592808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,14 +1219,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonValues: []
   playerHealth: 0
+  playerMaxHealth: 0
   playerAttack: 0
   enemyHealth: 0
+  enemyMaxHealth: 0
   enemyAttack: 0
   stage: 0
   level: 0
   battleEnd: 0
   isBattle: 0
   isDestroy: 0
+  timer: 20
 --- !u!4 &1192592810
 Transform:
   m_ObjectHideFlags: 0
@@ -1183,7 +1243,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1372690406
 PrefabInstance:
@@ -1350,7 +1410,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 56, y: 45, z: 0}
 --- !u!4 &1574709205 stripped
 Transform:

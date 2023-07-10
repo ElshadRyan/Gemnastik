@@ -882,7 +882,7 @@ MonoBehaviour:
   enemyHealth: 0
   enemyMaxHealth: 0
   enemyAttack: 0
-  stage: 1
+  stage: 0
   level: 0
   battleEnd: 0
   isBattle: 0

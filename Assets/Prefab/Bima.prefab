@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5153403743825592379}
   - component: {fileID: 2488098361615225304}
-  - component: {fileID: 7802347650186614836}
   m_Layer: 0
   m_Name: Bima
   m_TagString: Enemy
@@ -48,19 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7052540201146960538}
---- !u!114 &7802347650186614836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319385275160531123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147e5f5438d64d74f9e743136d5b95c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boxCollider: {fileID: 7236870896767198833}
 --- !u!1 &2617367224886078323
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +343,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.000008779837
       objectReference: {fileID: 0}
+    - target: {fileID: 3284947069438782170, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 18f4923992dbd824b9cbed18e09e716e, type: 2}
     - target: {fileID: 4217413126700510406, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -364,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 4865384461054560780, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 15ae67aeff166324db7abc588664ddfb, type: 2}
+      objectReference: {fileID: 2100000, guid: 0b1c8a65716629241af7cae4cfce488a, type: 2}
     - target: {fileID: 5465940246521907071, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 1.2139782
@@ -498,7 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a413c4f502e916d4390dd81fef0c1077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleHandler: {fileID: 0}
+  wait: 0
+  notDone: 0
 --- !u!4 &6626534975851573895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}

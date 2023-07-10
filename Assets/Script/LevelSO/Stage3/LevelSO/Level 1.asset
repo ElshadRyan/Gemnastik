@@ -18,20 +18,20 @@ MonoBehaviour:
   - {fileID: 0}
   imageJawaban: {fileID: 0}
   imageSoal: {fileID: 0}
-  correctAnswer1: 0
+  correctAnswer1: 1
   correctAnswer2: 0
   correctAnswer3: 0
   wrongAnswer: 0
-  soal: 
+  soal: French_ries
   soalTemp: 
   jawabanPanjang:
-  - 
-  - 
-  - 
+  - Frenchfries
+  - Frencharies
+  - Frenchgries
   jawabanSingkat:
-  - 
-  - 
-  - 
+  - F
+  - A
+  - G
   button1: 0
   button2: 0
   button3: 0
