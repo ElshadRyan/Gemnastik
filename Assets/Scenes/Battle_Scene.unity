@@ -882,7 +882,7 @@ MonoBehaviour:
   enemyHealth: 0
   enemyMaxHealth: 0
   enemyAttack: 0
-  stage: 0
+  stage: 1
   level: 0
   battleEnd: 0
   isBattle: 0
@@ -1103,6 +1103,7 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 1861826835}
   playerHealthBar: {fileID: 1587669068}
   timerBar: {fileID: 808925722}
+  enemy: {fileID: 0}
   stageSO:
   - {fileID: 11400000, guid: d1795af43e4c7ab4ea9a8e9a5e5f423c, type: 2}
   - {fileID: 11400000, guid: 63ddccb7044391d40bafb24ac32d206f, type: 2}
@@ -1118,6 +1119,7 @@ MonoBehaviour:
   - a
   - a
   - a
+  waitAnimation: 0
   playState: 0
 --- !u!4 &1062054962
 Transform:

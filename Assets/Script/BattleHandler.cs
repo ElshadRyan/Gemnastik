@@ -10,6 +10,8 @@ public class BattleHandler : MonoBehaviour
 
     private Player player;
     private Sprite soalImages;
+    private WaitAnimation enemyWaitAnim;
+    private WaitAnimation playerWaitAnim;
     public Sprite images;
 
     [SerializeField] private Transform playerGameObject;
@@ -32,6 +34,8 @@ public class BattleHandler : MonoBehaviour
     private bool isAttack;
     private bool spawn = true;
     private bool lastBattle;
+    private bool enemyAttack;
+    public bool waitAnimation;
     
 
     enum state
@@ -52,33 +56,35 @@ public class BattleHandler : MonoBehaviour
         Spawn(true);
         Spawn(false);
 
-
+        player = FindAnyObjectByType<Player>();
+        enemyWaitAnim = GameObject.FindGameObjectWithTag("Enemy").GetComponentInChildren<WaitAnimation>();
+        playerWaitAnim = player.GetComponentInChildren<WaitAnimation>();
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+
         gm.level = 0;
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
         comboCounter = 0;
 
         gm.isBattle = true;
-        enemy.InBattle(gm.isBattle);
-
-
+        afterIsClicked = false;
         gm.battleEnd = false;
         lastBattle = false;
-        player = FindAnyObjectByType<Player>();
 
+
+        enemy.InBattle(gm.isBattle);
+        player.InBattle(gm.isBattle);
     }
     private void Update()
     {
         Timer();
         AttackSequence();
-        
     }
 
     public void Timer()
     {
 
-        if(gm.timer >= 0)
+        if(gm.timer >= 0 && !waitAnimation)
         {
             timerBar.TimerBar(gm.timer);
             gm.timer -= Time.deltaTime;
@@ -122,6 +128,12 @@ public class BattleHandler : MonoBehaviour
         {
             case state.idle:
                 spawn = true;
+                enemyAttack = false;
+
+
+                player.Damage(false);
+                enemy.IsAttack(false);
+                
 
                 if (spawn)
                 {
@@ -132,6 +144,7 @@ public class BattleHandler : MonoBehaviour
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
                     spawn = false;
+
                 }
                 stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 playState = state.attack;
@@ -139,47 +152,32 @@ public class BattleHandler : MonoBehaviour
             case state.attack:
                 isAttack = true;
                 WhenClicked();
-                
+
 
                 break;
 
             case state.enemy_attack:
                 gm.isDestroy = false;
                 isAttack = false;
-                if (isClicked)
+                player.AttackAnimation(false);
+
+                player.IsAttack(false);
+                enemy.Damage(false);
+                if (!playerWaitAnim.wait)
                 {
-                    enemyHealthBar.EnemyHealthBar();
-                    isClicked = false;
+                    AfterClicked();
                 }
-                AfterClicked();
+
 
                 break;
             case state.after_attack:
                 stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
 
-                if(afterIsClicked)
+                if(!enemyWaitAnim.wait)
                 {
-                    playerHealthBar.PlayerHealthBar();
-                    afterIsClicked = false;
-                    gm.timer = 20f;
+                    AfterAttack();
                 }
 
-                if (levelLength == gm.level)
-                {
-                    lastBattle = true;
-                }
-
-                if (!lastBattle)
-                {
-                    gm.level++;
-                    playState = state.idle;
-                }
-
-                if(lastBattle || gm.enemyHealth <= 0 || gm.playerHealth<=0)
-                {
-                    gm.battleEnd = true;
-                    gm.BattleEnd();
-                }
                 break; 
         }
     }
@@ -187,7 +185,7 @@ public class BattleHandler : MonoBehaviour
 
     public void PlayerAttackCalculate()
     {
-        player.AttackAnimation(true);
+        player.IsAttack(true);
         gm.EnemyDamage();
         if(stageSO[gm.stage].levelSO[gm.level].lastCombo)
         {
@@ -278,8 +276,16 @@ public class BattleHandler : MonoBehaviour
         textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
         if (gm.isDestroy)
         {
+
+            if(!stageSO[gm.stage].levelSO[gm.level].combo)
+            {
+                playerWaitAnim.wait = true;
+
+                player.IsAttack(true);
+                enemy.Damage(true);
+            }
             isClicked = true;
-            
+
 
             if (stageSO[gm.stage].levelSO[gm.level].timeIsUp)
             {
@@ -332,33 +338,83 @@ public class BattleHandler : MonoBehaviour
 
     public void AfterClicked()
     {
+
+        if (isClicked)
+        {
+            enemyHealthBar.EnemyHealthBar();
+            isClicked = false;
+
+        }
+
         afterIsClicked = true;
 
-        textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
-        if (stageSO[gm.stage].levelSO[gm.level].combo)
+        if (!stageSO[gm.stage].levelSO[gm.level].combo)
         {
-            playState = state.after_attack;
-        }
-        else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
-        {
-            gm.PlayerDamage();
-            playState = state.after_attack;
-        }
-
-        if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-        {
-            gm.enemyAttack /= 2;
-            gm.PlayerDamage();
-            gm.enemyAttack *= 2;
-            playState = state.after_attack;
+            enemyWaitAnim.wait = true;
+            enemyAttack = true;
+            player.Damage(true);
+            enemy.IsAttack(true);
 
         }
-        else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
-        {
-            gm.PlayerDamage();
-            playState = state.after_attack;
-        }
+
+
+            textSoal.text = stageSO[gm.stage].levelSO[gm.level].soal;
+            if (stageSO[gm.stage].levelSO[gm.level].combo)
+            {
+                playState = state.after_attack;
+            }
+            else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                gm.PlayerDamage();
+                playState = state.after_attack;
+            }
+
+            if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                gm.enemyAttack /= 2;
+                gm.PlayerDamage();
+                gm.enemyAttack *= 2;
+                playState = state.after_attack;
+
+            }
+            else if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer && !stageSO[gm.stage].levelSO[gm.level].combo && !stageSO[gm.stage].levelSO[gm.level].lastCombo)
+            {
+                gm.PlayerDamage();
+                playState = state.after_attack;
+            }
+        
+        
     }
 
-    
+    public void AfterAttack()
+    {
+
+        if (afterIsClicked)
+        {
+            playerHealthBar.PlayerHealthBar();
+            afterIsClicked = false;
+            gm.timer = 20f;
+        }
+
+            if (levelLength == gm.level)
+            {
+                lastBattle = true;
+            }
+
+            if (!lastBattle)
+            {
+                gm.level++;
+                playState = state.idle;
+            }
+
+            if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
+            {
+                gm.battleEnd = true;
+                gm.BattleEnd();
+            }
+        
+        
+    }
+
+     
 }

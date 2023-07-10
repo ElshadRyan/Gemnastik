@@ -117,4 +117,24 @@ public class Player: MonoBehaviour
         animationPlayer.SetBool("IsWalking", walking);
     }   
 
+    public void InBattle(bool isInBattle)
+    {
+        animationPlayer.SetBool("IsInBattle", isInBattle);
+    }
+
+    public void IsAttack(bool isAttack)
+    {
+        animationPlayer.SetBool("IsAttack", isAttack);
+    }
+
+    public void Damage(bool damage)
+    {
+        animationPlayer.SetBool("Damage", damage);
+    }
+
+    public void IsDeath(bool isDeath)
+    {
+        animationPlayer.SetBool("IsDeath", isDeath);
+    }
+
 }
