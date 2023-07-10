@@ -20,6 +20,7 @@ public class Player: MonoBehaviour
         gm = GameManager.Instance;
         gm.playerAttack = 4;
         gm.playerHealth = 30;
+        gm.playerMaxHealth = gm.playerHealth;
         npcInteract = FindAnyObjectByType<NPCInteract>();
     }
 

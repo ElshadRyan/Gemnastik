@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ButtonValue[] buttonValues; 
 
     public int playerHealth;
+    public float playerMaxHealth;
     public int playerAttack;
     public int enemyHealth;
+    public float enemyMaxHealth;
     public int enemyAttack;
     public int stage = 0;
     public int level = 0;
@@ -18,10 +20,10 @@ public class GameManager : MonoBehaviour
     public bool battleEnd = false;
     public bool isBattle = false;
     public bool isDestroy = false;
+    public float timer = 20f;
 
-    
-    
-    
+
+
     private void Awake()
     {
         Instance = this;

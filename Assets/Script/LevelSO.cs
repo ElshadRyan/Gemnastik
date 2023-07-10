@@ -82,7 +82,6 @@ public class LevelSO : ScriptableObject
         }
         else if(!isPressed)
         {
-            Debug.Log("Masuk");
             soalTemp = soal;
         }
         isPressed = false;
