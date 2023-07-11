@@ -25,9 +25,9 @@ MonoBehaviour:
   soal: Rais_n
   soalTemp: 
   jawabanPanjang:
-  - Rads_n
-  - Racs_n
-  - Rais_n
+  - Raisdn
+  - Raiscn
+  - Raisin
   jawabanSingkat:
   - D
   - C

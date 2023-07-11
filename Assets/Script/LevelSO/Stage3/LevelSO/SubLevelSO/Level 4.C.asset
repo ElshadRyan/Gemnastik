@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Keb__
-  soalTemp: 
+  soalTemp: Keb__
   jawabanPanjang:
   - Keba_
   - Kebe_

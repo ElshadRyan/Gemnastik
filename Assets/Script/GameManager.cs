@@ -31,8 +31,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("Stage", 0);
+        PlayerPrefs.SetInt("Stage", 3);
         stage = PlayerPrefs.GetInt("Stage");
+        Debug.Log(stage);
     }
 
     public void BattleEnd()
@@ -52,11 +53,13 @@ public class GameManager : MonoBehaviour
 
     public void EnemyDamage()
     {
-        enemyHealth -= playerAttack;        
+        enemyHealth -= playerAttack;
+        Debug.Log(enemyHealth);
     }
 
     public void PlayerDamage()
     {
-        playerHealth -= enemyAttack;        
+        playerHealth -= enemyAttack;
+        Debug.Log(playerHealth);
     }
 }

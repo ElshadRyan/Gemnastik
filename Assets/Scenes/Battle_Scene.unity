@@ -1361,7 +1361,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8fe5deccebcdc2741b46916478cd1b59, type: 2}
   - {fileID: 11400000, guid: 00af4ed7ab6b4fa499858c1480b79c34, type: 2}
   prefabEnemy:
+  - {fileID: 3119353413605488251, guid: 980988fa06de57b46a4f35e6410bc55c, type: 3}
   - {fileID: 1319385275160531123, guid: da2fa69616e545242a28e67c31c07b45, type: 3}
+  - {fileID: 4018131046305281973, guid: 2cd4f010d02f96c4db2db34414fed372, type: 3}
   - {fileID: 2553614955098585005, guid: 4f25786ba92701f4eb72d49db52588de, type: 3}
   randomInstantiate: {fileID: 1546358822}
   textSoal: {fileID: 1802067147}

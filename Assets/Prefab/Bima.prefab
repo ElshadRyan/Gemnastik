@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bima Neutral Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2559285840627121667, guid: 73df1eb39f56c5a4a92f99a2ef2bbae4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -21.323975

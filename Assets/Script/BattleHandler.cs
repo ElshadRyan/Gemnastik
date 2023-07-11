@@ -30,12 +30,14 @@ public class BattleHandler : MonoBehaviour
 
 
     private int comboCounter;
+    private int stageLength;
     private int levelLength;
     private bool isClicked;
     private bool afterIsClicked;
     private bool isAttack;
     private bool spawn = true;
     private bool lastBattle;
+    private bool stageCount;
     private bool enemyAttack;
     public bool waitAnimation;
     
@@ -66,6 +68,7 @@ public class BattleHandler : MonoBehaviour
         gm.level = 0;
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
+        stageLength = prefabEnemy.Length;
         comboCounter = 0;
         gm.stagecount = stageSO.Length;
 
@@ -77,6 +80,8 @@ public class BattleHandler : MonoBehaviour
         pressSpace.gameObject.SetActive(false);
         enemy.InBattle(gm.isBattle);
         player.InBattle(gm.isBattle);
+
+        Debug.Log(gm.stage);
     }
     private void Update()
     {
@@ -133,7 +138,6 @@ public class BattleHandler : MonoBehaviour
         switch (playState)
         {
             case state.idle:
-                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
 
                 spawn = true;
                 enemyAttack = false;
@@ -170,6 +174,18 @@ public class BattleHandler : MonoBehaviour
 
                 player.IsAttack(false);
                 enemy.Damage(false);
+
+                if(gm.enemyHealth <= 0 || gm.playerHealth <= 0)
+                {
+                    if (isClicked)
+                    {
+                        enemyHealthBar.EnemyHealthBar();
+                        isClicked = false;
+
+                    }
+                    playState = state.after_attack;
+                }
+
                 if (!playerWaitAnim.wait)
                 {
                     AfterClicked();
@@ -178,6 +194,10 @@ public class BattleHandler : MonoBehaviour
 
                 break;
             case state.after_attack:
+                if(gm.stage < stageLength)
+                {
+                    stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
+                }
                 if (!enemyWaitAnim.wait)
                 {
                     AfterAttack();
@@ -394,25 +414,35 @@ public class BattleHandler : MonoBehaviour
             afterIsClicked = false;
             gm.timer = 20f;
         }
-        if (levelLength == gm.level)
+        if (levelLength == gm.level && !lastBattle || gm.enemyHealth <= 0 && !lastBattle || gm.playerHealth <= 0 && !lastBattle)
         {
+
             lastBattle = true;
+            stageCount = true;
         }
 
         if (!lastBattle)
         {
+
             gm.level++;
             playState = state.idle;
         }
-        else if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
+
+        if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
         {
-            if(gm.stage < gm.stagecount)
+            if(gm.stage < gm.stagecount && stageCount)
             {
-                PlayerPrefs.SetInt("Stage", gm.stage++);
+                if(gm.stage < stageLength)
+                {
+                    gm.stage++;
+                }
+                PlayerPrefs.SetInt("Stage", gm.stage);
+                stageCount = false;
+                Debug.Log("Masuk");
             }
             gm.battleEnd = true;
-            gm.BattleEnd();
             gm.level = 0;
+            gm.BattleEnd();
             textSoal.text = gm.WinLose;
             pressSpace.gameObject.SetActive(true);
             

@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Keba_
-  soalTemp: 
+  soalTemp: Keba_
   jawabanPanjang:
   - Kebab
   - Kebap

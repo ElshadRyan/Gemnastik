@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 1
   wrongAnswer: 0
   soal: __n
-  soalTemp: 
+  soalTemp: __n
   jawabanPanjang:
   - R_n
   - N_n
@@ -35,7 +35,7 @@ MonoBehaviour:
   button1: 0
   button2: 0
   button3: 0
-  combo: 0
+  combo: 1
   lastCombo: 0
   timeIsUp: 0
   isPressed: 0

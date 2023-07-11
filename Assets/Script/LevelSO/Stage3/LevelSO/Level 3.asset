@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: _am
-  soalTemp: 
+  soalTemp: _am
   jawabanPanjang:
   - Nam
   - Jam

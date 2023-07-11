@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     {
         gm = GameManager.Instance;
         gm.enemyAttack = 4;
-        gm.enemyHealth = 30;
+        gm.enemyHealth = 1000;
         gm.enemyMaxHealth = gm.enemyHealth;
     }
 
