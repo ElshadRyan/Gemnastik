@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("Stage", 3);
+        PlayerPrefs.SetInt("Stage", 0);
         stage = PlayerPrefs.GetInt("Stage");
         Debug.Log(stage);
     }
 
     public void BattleEnd()
     {
-        if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0)
+        if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0 || enemyHealth == playerHealth)
         {
             isBattle = false;
             WinLose = "You Win";

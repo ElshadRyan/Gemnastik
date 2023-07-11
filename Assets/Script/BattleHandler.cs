@@ -21,6 +21,7 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private HPFill timerBar;
     [SerializeField] private Enemy enemy;
     [SerializeField] private StageSO[] stageSO;
+    [SerializeField] private LevelSO stageSOTemp;
     [SerializeField] private GameObject[] prefabEnemy;
     [SerializeField] private RandomInstantiate randomInstantiate;
     [SerializeField] private TextMeshProUGUI textSoal;
@@ -195,7 +196,7 @@ public class BattleHandler : MonoBehaviour
                 break;
             case state.after_attack:
                 if(gm.stage < stageLength)
-                {
+                {                    
                     stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 }
                 if (!enemyWaitAnim.wait)
@@ -216,9 +217,6 @@ public class BattleHandler : MonoBehaviour
             gm.playerAttack /= comboCounter;
         }
         //StartCoroutine(AnimationTiming());
-
-
-
         playState = state.enemy_attack;
     }
 
@@ -271,19 +269,31 @@ public class BattleHandler : MonoBehaviour
     {
         if (stageSO[gm.stage].levelSO[gm.level].combo)
         {
-            if (stageSO[gm.stage].levelSO[gm.level].button1 && stageSO[gm.stage].levelSO[gm.level].correctAnswer1)
+            if (stageSO[gm.stage].levelSO[gm.level].button1)
             {
-                stageSO[gm.stage].levelSO[gm.level + 1] = stageSO[gm.stage].levelSO[gm.level].nextCombo[0];
-                comboCounter++;
+                stageSOTemp = stageSO[gm.stage].levelSO[gm.level].nextCombo[0];
+                Debug.Log("LevelSOTerubah");
+                gm.level++;
+                stageSO[gm.stage].levelSO[gm.level] = stageSOTemp;
+                gm.level--;
             }
-            if (stageSO[gm.stage].levelSO[gm.level].button2 && stageSO[gm.stage].levelSO[gm.level].correctAnswer2)
+            if (stageSO[gm.stage].levelSO[gm.level].button2)
             {
-                stageSO[gm.stage].levelSO[gm.level + 1] = stageSO[gm.stage].levelSO[gm.level].nextCombo[1];
-                comboCounter++;
+                stageSOTemp = stageSO[gm.stage].levelSO[gm.level].nextCombo[1];
+                gm.level++;
+                stageSO[gm.stage].levelSO[gm.level] = stageSOTemp;
+                gm.level--;
             }
-            if (stageSO[gm.stage].levelSO[gm.level].button3 && stageSO[gm.stage].levelSO[gm.level].correctAnswer3)
+            if (stageSO[gm.stage].levelSO[gm.level].button3)
             {
-                stageSO[gm.stage].levelSO[gm.level + 1] = stageSO[gm.stage].levelSO[gm.level].nextCombo[2];
+                stageSOTemp = stageSO[gm.stage].levelSO[gm.level].nextCombo[2];
+                gm.level++;
+                stageSO[gm.stage].levelSO[gm.level] = stageSOTemp;
+                gm.level--;
+            }
+
+            if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
+            {
                 comboCounter++;
             }
            
@@ -313,15 +323,9 @@ public class BattleHandler : MonoBehaviour
             }
             if (stageSO[gm.stage].levelSO[gm.level].combo)
             {
-                if (!stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                {
-                    Combo();
-                    playState = state.enemy_attack;
-                }
-                if (stageSO[gm.stage].levelSO[gm.level].wrongAnswer)
-                {
-                    playState = state.enemy_attack;
-                }
+                Combo();
+                Debug.Log("MasukCombo");
+                playState = state.enemy_attack;               
             }
 
             else if (stageSO[gm.stage].levelSO[gm.level].lastCombo)
@@ -334,6 +338,7 @@ public class BattleHandler : MonoBehaviour
                 {
                     gm.playerAttack *= comboCounter;
                     PlayerAttackCalculate();
+                    comboCounter = 0;
                     playState = state.enemy_attack;
                 }
 
@@ -432,7 +437,7 @@ public class BattleHandler : MonoBehaviour
         {
             if(gm.stage < gm.stagecount && stageCount)
             {
-                if(gm.stage < stageLength)
+                if(gm.stage < stageLength - 1)
                 {
                     gm.stage++;
                 }

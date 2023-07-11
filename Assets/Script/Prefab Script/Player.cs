@@ -8,6 +8,7 @@ public class Player: MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Rigidbody playerRigidbody;
     [SerializeField] private float RotateSpeed = 10f;
+    [SerializeField] private int[] playerHealth = new int[] { 20, 40, 40, 60 };
 
     private float moveSpeed = 5f;
     GameManager gm;
@@ -19,7 +20,7 @@ public class Player: MonoBehaviour
     {
         gm = GameManager.Instance;
         gm.playerAttack = 4;
-        gm.playerHealth = 1000;
+        gm.playerHealth = 100;
         gm.playerMaxHealth = gm.playerHealth;
         npcInteract = FindAnyObjectByType<NPCInteract>();
     }

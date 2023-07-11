@@ -51,6 +51,7 @@ MonoBehaviour:
   playerTransform: {fileID: 4159507136540163064}
   playerRigidbody: {fileID: 8716054932173900922}
   RotateSpeed: 10
+  playerHealth: 1400000028000000280000003c000000
 --- !u!114 &1241592844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147e5f5438d64d74f9e743136d5b95c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxCollider: {fileID: 0}
+  boxCollider: {fileID: 3151550600707055553}
   isInteract: 0
 --- !u!1001 &4481979718111910931
 PrefabInstance:

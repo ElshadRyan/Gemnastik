@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class EnsikloHandler : MonoBehaviour
 {
+    GameManager gm;
+
     [SerializeField] private GameObject[] canvasEnsiklo;
     private int canvasCount;
+    private int stage;
     bool canvasIsOff;
 
     private void Start()
     {
+        gm = GameManager.Instance;
+
         canvasCount = 0;
     }
     public void PressedNext()
@@ -33,4 +38,6 @@ public class EnsikloHandler : MonoBehaviour
         }
         canvasEnsiklo[canvasCount].SetActive(true);
     }
+
+   
 }

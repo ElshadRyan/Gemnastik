@@ -8,13 +8,14 @@ public class Enemy : MonoBehaviour
     BattleHandler battleHandler;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private int enemyHealth;
 
 
     private void Start()
     {
         gm = GameManager.Instance;
         gm.enemyAttack = 4;
-        gm.enemyHealth = 1000;
+        gm.enemyHealth = 100;
         gm.enemyMaxHealth = gm.enemyHealth;
     }
 
