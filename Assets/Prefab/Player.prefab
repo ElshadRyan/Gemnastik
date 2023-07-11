@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7869805201809006005}
   - component: {fileID: 7869805201809006004}
   - component: {fileID: 1241592844}
+  - component: {fileID: 1839520758}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +63,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d11d1300e81c944e8b21b2b541eecfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1839520758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7869805201809006006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147e5f5438d64d74f9e743136d5b95c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxCollider: {fileID: 0}
+  isInteract: 0
 --- !u!1001 &4481979718111910931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -406,7 +421,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &3151550600707055553
 BoxCollider:
@@ -419,7 +434,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0487716, z: 0.6582093}
+  m_Size: {x: 0.7, y: 1, z: 0.5}
   m_Center: {x: 0, y: 0.52391183, z: -0.0020922422}
 --- !u!95 &854731148
 Animator:
@@ -454,7 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a413c4f502e916d4390dd81fef0c1077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleHandler: {fileID: 0}
+  wait: 0
+  notDone: 0
 --- !u!4 &4159507136540163064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23a35fc4de321114f9f7ff946d28647d, type: 3}

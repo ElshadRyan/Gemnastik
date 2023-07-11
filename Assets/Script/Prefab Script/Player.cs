@@ -32,14 +32,6 @@ public class Player: MonoBehaviour
             PlayerMovement();
         }
 
-        if(npcInteract)
-        {
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                npcInteract.ChangeScene();
-            }
-        }
-
     }
 
     public void PlayerMovement()

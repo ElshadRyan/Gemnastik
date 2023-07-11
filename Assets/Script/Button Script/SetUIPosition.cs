@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class SetUIPosition : MonoBehaviour
 {
     GameManager gm;
-    [SerializeField] private RectTransform rectTransform;
+    [SerializeField] public RectTransform rectTransform;
 
     private int height1;
     private int height2;
-    private int height;
+    public int height;
 
     public Image image;
     public Sprite imageSoal;
@@ -30,7 +30,15 @@ public class SetUIPosition : MonoBehaviour
     private void SetPosition()
     {
         Vector2 position = new Vector2(0, height);
-        if (gm.stage == 0)
+
+        if(gm.battleEnd)
+        {
+            image.gameObject.SetActive(false);
+            height = height2;
+            rectTransform.anchoredPosition = position;
+        }
+
+        else if (gm.stage == 0)
         {
             image.gameObject.SetActive(false);
             height = height2;
@@ -43,6 +51,7 @@ public class SetUIPosition : MonoBehaviour
             height = height1;
             rectTransform.anchoredPosition = position;
         }
+
     }
 
 }

@@ -16,8 +16,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7feb5910145b9d40b5e95682fe89668, type: 2}
   - {fileID: 11400000, guid: 1b5ccba5774921e4eabe906d093b0741, type: 2}
   - {fileID: 11400000, guid: d4932d9892bffb14aa4ad5660f1f2ba5, type: 2}
-  imageJawaban: {fileID: 0}
-  imageSoal: {fileID: 0}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: ffe78a1cc72a2604fb8ec4d23a2cfbf1, type: 3}
   correctAnswer1: 0
   correctAnswer2: 1
   correctAnswer3: 0

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] private ButtonValue[] buttonValues; 
 
     public int playerHealth;
     public float playerMaxHealth;
@@ -15,13 +14,14 @@ public class GameManager : MonoBehaviour
     public float enemyMaxHealth;
     public int enemyAttack;
     public int stage = 0;
+    public int stagecount;
     public int level = 0;
 
     public bool battleEnd = false;
     public bool isBattle = false;
     public bool isDestroy = false;
     public float timer = 20f;
-
+    public string WinLose;
 
 
     private void Awake()
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("Stage", 0);
         stage = PlayerPrefs.GetInt("Stage");
     }
 
@@ -39,29 +40,23 @@ public class GameManager : MonoBehaviour
         if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0)
         {
             isBattle = false;
-            Debug.Log("You Win");
-            SceneManager.LoadScene("WorldMap");
+            WinLose = "You Win";
         }
 
         else if (enemyHealth > playerHealth && battleEnd || playerHealth <= 0)
         {
             isBattle = false;
-            Debug.Log("You Lose");
-            SceneManager.LoadScene("WorldMap");
+            WinLose = "You Lose";
         }
     }
 
     public void EnemyDamage()
     {
-        enemyHealth -= playerAttack;
-        Debug.Log(enemyHealth);
-        
+        enemyHealth -= playerAttack;        
     }
 
     public void PlayerDamage()
     {
-        playerHealth -= enemyAttack;
-        Debug.Log(playerHealth);
-        
+        playerHealth -= enemyAttack;        
     }
 }

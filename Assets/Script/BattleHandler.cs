@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BattleHandler : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class BattleHandler : MonoBehaviour
     [SerializeField] private GameObject[] prefabEnemy;
     [SerializeField] private RandomInstantiate randomInstantiate;
     [SerializeField] private TextMeshProUGUI textSoal;
+    [SerializeField] private TextMeshProUGUI pressSpace;
     [SerializeField] private SetUIPosition setUIPosition;
     [SerializeField] private string[] text = new string[3];
 
@@ -65,19 +67,23 @@ public class BattleHandler : MonoBehaviour
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
         comboCounter = 0;
+        gm.stagecount = stageSO.Length;
 
         gm.isBattle = true;
         afterIsClicked = false;
         gm.battleEnd = false;
         lastBattle = false;
 
-
+        pressSpace.gameObject.SetActive(false);
         enemy.InBattle(gm.isBattle);
         player.InBattle(gm.isBattle);
     }
     private void Update()
     {
-        Timer();
+        if(!waitAnimation && !gm.battleEnd)
+        {
+            Timer();
+        }
         AttackSequence();
     }
 
@@ -127,6 +133,8 @@ public class BattleHandler : MonoBehaviour
         switch (playState)
         {
             case state.idle:
+                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
+
                 spawn = true;
                 enemyAttack = false;
 
@@ -170,13 +178,10 @@ public class BattleHandler : MonoBehaviour
 
                 break;
             case state.after_attack:
-                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
-
-                if(!enemyWaitAnim.wait)
+                if (!enemyWaitAnim.wait)
                 {
                     AfterAttack();
                 }
-
                 break; 
         }
     }
@@ -389,26 +394,40 @@ public class BattleHandler : MonoBehaviour
             afterIsClicked = false;
             gm.timer = 20f;
         }
+        if (levelLength == gm.level)
+        {
+            lastBattle = true;
+        }
 
-            if (levelLength == gm.level)
-            {
-                lastBattle = true;
-            }
-
-            if (!lastBattle)
-            {
-                gm.level++;
-                playState = state.idle;
-            }
-
-            if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
+        if (!lastBattle)
+        {
+            gm.level++;
+            playState = state.idle;
+        }
+        else if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
+        {
+            if(gm.stage < gm.stagecount)
             {
                 PlayerPrefs.SetInt("Stage", gm.stage++);
-                gm.battleEnd = true;
-                gm.BattleEnd();
             }
-        
-        
+            gm.battleEnd = true;
+            gm.BattleEnd();
+            gm.level = 0;
+            textSoal.text = gm.WinLose;
+            pressSpace.gameObject.SetActive(true);
+            
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("WorldMap");
+            }
+            else
+            {
+                playState = state.after_attack;
+            }
+
+        }
+
+
     }
 
      
