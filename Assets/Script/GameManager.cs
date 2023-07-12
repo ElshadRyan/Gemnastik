@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0 || enemyHealth == playerHealth)
         {
-            if (stage < stagelength - 1 && isBattle)
+            if (stage < stagelength && isBattle)
             {
                 Debug.Log("masuk");
                 stage++;
