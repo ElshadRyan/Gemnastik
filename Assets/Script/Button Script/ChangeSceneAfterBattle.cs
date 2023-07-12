@@ -19,12 +19,18 @@ public class ChangeSceneAfterBattle : MonoBehaviour
     public void NewGameButton()
     {
         PlayerPrefs.SetInt("Stage",0);
+        PlayerPrefs.SetInt("CutsceneEnd", 0);
         SceneManager.LoadScene("WorldMap");
     }
 
     public void ContinueButton()
     {
         SceneManager.LoadScene("WorldMap");
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 
 }

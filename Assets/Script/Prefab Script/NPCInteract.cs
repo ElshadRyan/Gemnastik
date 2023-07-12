@@ -8,6 +8,8 @@ public class NPCInteract : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider;
     GameManager gm;
     public bool isInteract;
+    public bool yesButton;
+    public bool isPressed;
 
     private void Start()
     {
@@ -17,8 +19,11 @@ public class NPCInteract : MonoBehaviour
     {
         if(isInteract)
         {
-            Debug.Log("Masuk");
-            ChangeScene();
+            ChangeScene();                        
+        }
+        if (yesButton)
+        {
+            SceneManager.LoadScene("Battle_Scene");
         }
     }
 
@@ -26,17 +31,22 @@ public class NPCInteract : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("Battle_Scene");
-        }
-        
-    }
+            isPressed = true;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            isInteract = true;
+            if (gm.cutsceneDone == 1)
+            {
+                
+            }
+            else
+            {
+                SceneManager.LoadScene("Cutscene");
+            }
+
         }
+
+        
+
+
     }
 
     private void OnTriggerEnter(Collider other)

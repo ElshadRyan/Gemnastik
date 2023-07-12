@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     public int playerHealth;
     public float playerMaxHealth;
     public int playerAttack;
@@ -20,6 +19,9 @@ public class GameManager : MonoBehaviour
     public bool battleEnd = false;
     public bool isBattle = false;
     public bool isDestroy = false;
+    public bool isWin = false;
+    public int cutsceneDone;
+    public int stagelength;
     public float timer = 20f;
     public string WinLose;
 
@@ -31,21 +33,31 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("Stage", 0);
+        //PlayerPrefs.SetInt("Stage", 0);
+        cutsceneDone = PlayerPrefs.GetInt("CutsceneEnd");
         stage = PlayerPrefs.GetInt("Stage");
-        Debug.Log(stage);
     }
 
     public void BattleEnd()
     {
         if (enemyHealth < playerHealth && battleEnd || enemyHealth <= 0 || enemyHealth == playerHealth)
         {
+            if (stage < stagelength - 1 && isBattle)
+            {
+                Debug.Log("masuk");
+                stage++;
+                PlayerPrefs.SetInt("Stage", stage);
+
+                Debug.Log(stage);
+            }
+            isWin = true;
             isBattle = false;
             WinLose = "You Win";
         }
 
         else if (enemyHealth > playerHealth && battleEnd || playerHealth <= 0)
         {
+            isWin = false;
             isBattle = false;
             WinLose = "You Lose";
         }
@@ -54,12 +66,12 @@ public class GameManager : MonoBehaviour
     public void EnemyDamage()
     {
         enemyHealth -= playerAttack;
-        Debug.Log(enemyHealth);
     }
 
     public void PlayerDamage()
     {
         playerHealth -= enemyAttack;
-        Debug.Log(playerHealth);
     }
+
+    
 }

@@ -70,6 +70,7 @@ public class BattleHandler : MonoBehaviour
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
         stageLength = prefabEnemy.Length;
+        gm.stagelength = stageLength;
         comboCounter = 0;
         gm.stagecount = stageSO.Length;
 
@@ -435,20 +436,14 @@ public class BattleHandler : MonoBehaviour
 
         if (lastBattle || gm.enemyHealth <= 0 || gm.playerHealth <= 0)
         {
-            if(gm.stage < gm.stagecount && stageCount)
-            {
-                if(gm.stage < stageLength - 1)
-                {
-                    gm.stage++;
-                }
-                PlayerPrefs.SetInt("Stage", gm.stage);
-                stageCount = false;
-                Debug.Log("Masuk");
-            }
+            
+            gm.BattleEnd();
             gm.battleEnd = true;
             gm.level = 0;
-            gm.BattleEnd();
             textSoal.text = gm.WinLose;
+            
+
+
             pressSpace.gameObject.SetActive(true);
             
             if(Input.GetKeyDown(KeyCode.Space))

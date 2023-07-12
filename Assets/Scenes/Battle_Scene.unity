@@ -1133,6 +1133,9 @@ MonoBehaviour:
   battleEnd: 0
   isBattle: 0
   isDestroy: 0
+  isWin: 0
+  cutsceneDone: 0
+  stagelength: 0
   timer: 20
   WinLose: 
 --- !u!1001 &993289224
@@ -1360,6 +1363,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63ddccb7044391d40bafb24ac32d206f, type: 2}
   - {fileID: 11400000, guid: 8fe5deccebcdc2741b46916478cd1b59, type: 2}
   - {fileID: 11400000, guid: 00af4ed7ab6b4fa499858c1480b79c34, type: 2}
+  stageSOTemp: {fileID: 0}
   prefabEnemy:
   - {fileID: 3119353413605488251, guid: 980988fa06de57b46a4f35e6410bc55c, type: 3}
   - {fileID: 1319385275160531123, guid: da2fa69616e545242a28e67c31c07b45, type: 3}
