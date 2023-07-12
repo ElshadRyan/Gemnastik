@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: __lop_one
-  soalTemp: 
+  soalTemp: __lop_one
   jawabanPanjang:
   - H_lop_one
   - X_lop_one

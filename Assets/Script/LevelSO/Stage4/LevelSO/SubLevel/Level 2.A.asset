@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 1
   wrongAnswer: 0
   soal: Si_ar
-  soalTemp: 
+  soalTemp: Si_ar
   jawabanPanjang:
   - Sizar
   - Siyar

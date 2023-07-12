@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: X_lop_one
-  soalTemp: 
+  soalTemp: X_lop_one
   jawabanPanjang:
   - Xylop_one
   - Xblop_one

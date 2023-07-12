@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 1
   wrongAnswer: 0
   soal: Ukule_e
-  soalTemp: 
+  soalTemp: Ukule_e
   jawabanPanjang:
   - Ukulexe
   - Ukulece

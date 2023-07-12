@@ -229,7 +229,8 @@ GameObject:
   - component: {fileID: 857466842}
   - component: {fileID: 857466841}
   - component: {fileID: 857466840}
-  - component: {fileID: 857466839}
+  - component: {fileID: 857466844}
+  - component: {fileID: 857466843}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -254,21 +255,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 545, y: -113}
+  m_AnchoredPosition: {x: 600, y: -5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &857466839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857466837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 750435f15d5fd2b42af14aa242159c7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &857466840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 857466839}
+      - m_Target: {fileID: 857466844}
         m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
         m_MethodName: ContinueButton
         m_Mode: 1
@@ -363,6 +352,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857466837}
   m_CullTransparentMesh: 1
+--- !u!114 &857466843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857466837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 857466844}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: ContinueHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 857466844}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: ContinueExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &857466844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857466837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750435f15d5fd2b42af14aa242159c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newGameButtonImage: {fileID: 0}
+  quitGameButtonImage: {fileID: 0}
+  continueButtonImage: {fileID: 857466841}
+  newGameButtonSpriteHover: {fileID: 0}
+  quitGameButtonSpriteHover: {fileID: 0}
+  continueButtonSpriteHover: {fileID: 21300000, guid: 499a71c515be36c4b8227882e8979c33, type: 3}
+  newGameButtonSprite: {fileID: 0}
+  quitGameButtonSprite: {fileID: 0}
+  continueButtonSprite: {fileID: 21300000, guid: b02e6c509d60d1d47a50a15f97636b59, type: 3}
 --- !u!1 &972645214
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +431,7 @@ GameObject:
   - component: {fileID: 972645218}
   - component: {fileID: 972645217}
   - component: {fileID: 972645216}
+  - component: {fileID: 972645220}
   m_Layer: 5
   m_Name: New Game Button
   m_TagString: Untagged
@@ -400,7 +456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 591, y: 44}
+  m_AnchoredPosition: {x: 600, y: 155}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972645216
@@ -415,6 +471,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750435f15d5fd2b42af14aa242159c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButtonImage: {fileID: 972645218}
+  quitGameButtonImage: {fileID: 0}
+  continueButtonImage: {fileID: 0}
+  newGameButtonSpriteHover: {fileID: 21300000, guid: 3b5e97032ca19d14fb69c54ff0069f9f, type: 3}
+  quitGameButtonSpriteHover: {fileID: 0}
+  continueButtonSpriteHover: {fileID: 0}
+  newGameButtonSprite: {fileID: 21300000, guid: e10524a85c317ae4c8bc9a4db965f663, type: 3}
+  quitGameButtonSprite: {fileID: 0}
+  continueButtonSprite: {fileID: 0}
 --- !u!114 &972645217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +574,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972645214}
   m_CullTransparentMesh: 1
+--- !u!114 &972645220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972645214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 972645216}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: NewGameHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 972645216}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: NewGameExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1062775549
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +736,7 @@ GameObject:
   - component: {fileID: 1096975252}
   - component: {fileID: 1096975251}
   - component: {fileID: 1096975250}
+  - component: {fileID: 1096975254}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -650,7 +761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 358, y: -270.42224}
+  m_AnchoredPosition: {x: 600, y: -161}
   m_SizeDelta: {x: 86.2433, y: 26.4446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1096975250
@@ -665,6 +776,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750435f15d5fd2b42af14aa242159c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButtonImage: {fileID: 0}
+  quitGameButtonImage: {fileID: 1096975252}
+  continueButtonImage: {fileID: 0}
+  newGameButtonSpriteHover: {fileID: 0}
+  quitGameButtonSpriteHover: {fileID: 21300000, guid: b21d8a3836e02004d9fa4c6d6eb05fc9, type: 3}
+  continueButtonSpriteHover: {fileID: 0}
+  newGameButtonSprite: {fileID: 0}
+  quitGameButtonSprite: {fileID: 21300000, guid: 4691dcb9fd5e071489bfec97cf12b9cd, type: 3}
+  continueButtonSprite: {fileID: 0}
 --- !u!114 &1096975251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +879,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096975248}
   m_CullTransparentMesh: 1
+--- !u!114 &1096975254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096975248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1096975250}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: QuitGameHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1096975250}
+          m_TargetAssemblyTypeName: ChangeSceneAfterBattle, Assembly-CSharp
+          m_MethodName: QuitGameExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1223098374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1242,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 750435f15d5fd2b42af14aa242159c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameButtonImage: {fileID: 0}
+  quitGameButtonImage: {fileID: 0}
+  continueButtonImage: {fileID: 0}
+  newGameButtonSpriteHover: {fileID: 0}
+  quitGameButtonSpriteHover: {fileID: 0}
+  continueButtonSpriteHover: {fileID: 0}
+  newGameButtonSprite: {fileID: 0}
+  quitGameButtonSprite: {fileID: 0}
+  continueButtonSprite: {fileID: 0}
 --- !u!4 &2025343960
 Transform:
   m_ObjectHideFlags: 0

@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class SongHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SongHandler instance;
+    [SerializeField] private AudioSource bgmSource;
+
+    private void Awake()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        bgmSource = GetComponent<AudioSource>();
     }
+
+    public void PlayBGM(AudioClip clip)
+    {
+        if (bgmSource.isPlaying)
+        {
+            bgmSource.Stop();
+        }
+
+        bgmSource.clip = clip;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
 }

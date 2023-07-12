@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5897748383619571489}
+  enemyHealth: 50
 --- !u!1001 &2580145327929952867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -180,3 +181,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wait: 0
   notDone: 0
+--- !u!65 &1726091049
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3391189974570972978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7763254, y: 1.7073995, z: 0.79309815}
+  m_Center: {x: -0.019049212, y: 0.8716815, z: -0.103450954}

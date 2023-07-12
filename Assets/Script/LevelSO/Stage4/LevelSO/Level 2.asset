@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: _i_ar
-  soalTemp: 
+  soalTemp: _i_ar
   jawabanPanjang:
   - Si_ar
   - Ei_ar

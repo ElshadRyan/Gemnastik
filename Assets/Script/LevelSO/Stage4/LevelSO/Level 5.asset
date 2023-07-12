@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: _k_le_e
-  soalTemp: 
+  soalTemp: _k_le_e
   jawabanPanjang:
   - Uk_le_e
   - Ek_le_e

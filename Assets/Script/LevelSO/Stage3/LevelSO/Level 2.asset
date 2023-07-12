@@ -22,8 +22,8 @@ MonoBehaviour:
   correctAnswer2: 0
   correctAnswer3: 1
   wrongAnswer: 0
-  soal: Rais_n
-  soalTemp: 
+  soal: Raisin
+  soalTemp: Rais_n
   jawabanPanjang:
   - Raisdn
   - Raiscn
@@ -34,8 +34,8 @@ MonoBehaviour:
   - I
   button1: 0
   button2: 0
-  button3: 0
+  button3: 1
   combo: 0
   lastCombo: 0
   timeIsUp: 0
-  isPressed: 0
+  isPressed: 1

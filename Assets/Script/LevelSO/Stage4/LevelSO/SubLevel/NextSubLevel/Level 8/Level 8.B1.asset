@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Xylop_one
-  soalTemp: 
+  soalTemp: Xylop_one
   jawabanPanjang:
   - Xylopoone
   - Xylophone

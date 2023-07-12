@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 1
   wrongAnswer: 0
   soal: Wind Chim_s
-  soalTemp: 
+  soalTemp: Wind Chim_s
   jawabanPanjang:
   - Wind Chimrs
   - Wind Chimbs

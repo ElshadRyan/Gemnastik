@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Q_n
-  soalTemp: 
+  soalTemp: Q_n
   jawabanPanjang:
   - Qin
   - Qun

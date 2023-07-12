@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Reco_der
-  soalTemp: 
+  soalTemp: Reco_der
   jawabanPanjang:
   - Recoader
   - Recorder

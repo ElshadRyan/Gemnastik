@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Tromb_ne
-  soalTemp: 
+  soalTemp: Tromb_ne
   jawabanPanjang:
   - Trombcne
   - Trombone

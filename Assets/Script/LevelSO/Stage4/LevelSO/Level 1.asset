@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 1
   wrongAnswer: 0
   soal: _eco_der
-  soalTemp: 
+  soalTemp: _eco_der
   jawabanPanjang:
   - Ueco_der
   - Seco_der

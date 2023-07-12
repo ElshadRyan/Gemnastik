@@ -38,8 +38,6 @@ public class BattleHandler : MonoBehaviour
     private bool isAttack;
     private bool spawn = true;
     private bool lastBattle;
-    private bool stageCount;
-    private bool enemyAttack;
     public bool waitAnimation;
     
 
@@ -53,6 +51,7 @@ public class BattleHandler : MonoBehaviour
     }
     [SerializeField] state playState;
     
+
 
     private void Start()
     {
@@ -69,7 +68,7 @@ public class BattleHandler : MonoBehaviour
         gm.level = 0;
         levelLength = stageSO[gm.stage].levelSO.Length;
         levelLength -= 1;
-        stageLength = prefabEnemy.Length;
+        stageLength = prefabEnemy.Length - 1;
         gm.stagelength = stageLength;
         comboCounter = 0;
         gm.stagecount = stageSO.Length;
@@ -83,7 +82,6 @@ public class BattleHandler : MonoBehaviour
         enemy.InBattle(gm.isBattle);
         player.InBattle(gm.isBattle);
 
-        Debug.Log(gm.stage);
     }
     private void Update()
     {
@@ -92,6 +90,13 @@ public class BattleHandler : MonoBehaviour
             Timer();
         }
         AttackSequence();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(gm.battleEnd)
+            {
+                SceneManager.LoadScene("WorldMap");
+            }
+        }
     }
 
     public void Timer()
@@ -102,13 +107,14 @@ public class BattleHandler : MonoBehaviour
             timerBar.TimerBar(gm.timer);
             gm.timer -= Time.deltaTime;
         }
-        else
+        else if(gm.timer < 0)
         {
             if (isAttack)
             {
                 stageSO[gm.stage].levelSO[gm.level].timeIsUp = true;
                 gm.timer = 20f;
-                randomInstantiate.Invisible();                
+                randomInstantiate.Invisible();
+                playState = state.enemy_attack;
             }
         }                
     }
@@ -142,7 +148,6 @@ public class BattleHandler : MonoBehaviour
             case state.idle:
 
                 spawn = true;
-                enemyAttack = false;
 
 
                 player.Damage(false);
@@ -155,12 +160,12 @@ public class BattleHandler : MonoBehaviour
                     AssigningAnswer();
                     AssigningImageSoal();
                     AssigningImage();
+                    AssigningSoalToTemp();
                     randomInstantiate.RandomSpawn();
                     randomInstantiate.InstantiateSpawn();
                     spawn = false;
 
                 }
-                stageSO[gm.stage].levelSO[gm.level].SetAllToFalse();
                 playState = state.attack;
                 break;
             case state.attack:
@@ -247,6 +252,11 @@ public class BattleHandler : MonoBehaviour
         soalImages = stageSO[gm.stage].levelSO[gm.level].imageSoal;
         setUIPosition.imageSoal = soalImages;
     }
+
+    public void AssigningSoalToTemp()
+    {
+        stageSO[gm.stage].levelSO[gm.level].soalTemp = stageSO[gm.stage].levelSO[gm.level].soal;
+    }
     public void LastComboCalculate()
     {
         if(stageSO[gm.stage].levelSO[gm.level].lastCombo)
@@ -273,7 +283,6 @@ public class BattleHandler : MonoBehaviour
             if (stageSO[gm.stage].levelSO[gm.level].button1)
             {
                 stageSOTemp = stageSO[gm.stage].levelSO[gm.level].nextCombo[0];
-                Debug.Log("LevelSOTerubah");
                 gm.level++;
                 stageSO[gm.stage].levelSO[gm.level] = stageSOTemp;
                 gm.level--;
@@ -325,7 +334,6 @@ public class BattleHandler : MonoBehaviour
             if (stageSO[gm.stage].levelSO[gm.level].combo)
             {
                 Combo();
-                Debug.Log("MasukCombo");
                 playState = state.enemy_attack;               
             }
 
@@ -376,7 +384,6 @@ public class BattleHandler : MonoBehaviour
         if (!stageSO[gm.stage].levelSO[gm.level].combo)
         {
             enemyWaitAnim.wait = true;
-            enemyAttack = true;
             player.Damage(true);
             enemy.IsAttack(true);
 
@@ -424,7 +431,6 @@ public class BattleHandler : MonoBehaviour
         {
 
             lastBattle = true;
-            stageCount = true;
         }
 
         if (!lastBattle)
@@ -440,21 +446,8 @@ public class BattleHandler : MonoBehaviour
             gm.BattleEnd();
             gm.battleEnd = true;
             gm.level = 0;
-            textSoal.text = gm.WinLose;
-            
-
-
-            pressSpace.gameObject.SetActive(true);
-            
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene("WorldMap");
-            }
-            else
-            {
-                playState = state.after_attack;
-            }
-
+            textSoal.text = gm.WinLose;            
+            pressSpace.gameObject.SetActive(true);                                   
         }
 
 

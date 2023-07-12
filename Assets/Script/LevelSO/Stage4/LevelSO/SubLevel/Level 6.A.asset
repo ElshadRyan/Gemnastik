@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: V_o_in
-  soalTemp: 
+  soalTemp: V_o_in
   jawabanPanjang:
   - Vio_in
   - Vjo_in

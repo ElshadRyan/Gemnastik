@@ -23,7 +23,7 @@ MonoBehaviour:
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Tr_mb_ne
-  soalTemp: 
+  soalTemp: Tr_mb_ne
   jawabanPanjang:
   - Tromb_ne
   - Tramb_ne

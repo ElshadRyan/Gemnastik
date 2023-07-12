@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance;
     public int playerHealth;
     public float playerMaxHealth;
@@ -33,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.SetInt("Stage", 0);
+        //PlayerPrefs.SetInt("Stage", 2);
+
         cutsceneDone = PlayerPrefs.GetInt("CutsceneEnd");
         stage = PlayerPrefs.GetInt("Stage");
     }
@@ -44,11 +46,8 @@ public class GameManager : MonoBehaviour
         {
             if (stage < stagelength && isBattle)
             {
-                Debug.Log("masuk");
                 stage++;
                 PlayerPrefs.SetInt("Stage", stage);
-
-                Debug.Log(stage);
             }
             isWin = true;
             isBattle = false;
