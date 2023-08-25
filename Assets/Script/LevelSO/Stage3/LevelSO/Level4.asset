@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  nextCombo:
+  - {fileID: 11400000, guid: ca3b6211fe69fa6498fe7ad30dfb33af, type: 2}
+  - {fileID: 11400000, guid: a26f4b7c14715564382a2fa099ba096d, type: 2}
+  - {fileID: 11400000, guid: 31ff62d93346dad468cfec2c52e5c1d4, type: 2}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: d97f0f80d5187a846a75f139e7aea2a9, type: 3}
+  correctAnswer1: 0
+  correctAnswer2: 0
+  correctAnswer3: 1
+  wrongAnswer: 0
+  soal: _eb__
+  soalTemp: 
+  jawabanPanjang:
+  - Peb__
+  - Leb__
+  - Keb__
+  jawabanSingkat:
+  - P
+  - L
+  - K
+  button1: 0
+  button2: 0
+  button3: 0
+  combo: 1
+  lastCombo: 0
+  timeIsUp: 0
+  isPressed: 0

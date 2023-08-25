@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.SetInt("Stage", 2);
+        //PlayerPrefs.SetInt("Stage", 0);
 
         cutsceneDone = PlayerPrefs.GetInt("CutsceneEnd");
         stage = PlayerPrefs.GetInt("Stage");

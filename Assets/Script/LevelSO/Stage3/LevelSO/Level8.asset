@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
+  m_Name: Level8
+  m_EditorClassIdentifier: 
+  nextCombo:
+  - {fileID: 11400000, guid: fc18e9e4e05382c4cad04861fc053bc4, type: 2}
+  - {fileID: 11400000, guid: 954c0496f61c12544b7e1cab79d21533, type: 2}
+  - {fileID: 11400000, guid: 7880f0774444d8441ae72f74c9048bfe, type: 2}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: df50a4e9b761644458107a83b331b96c, type: 3}
+  correctAnswer1: 0
+  correctAnswer2: 1
+  correctAnswer3: 0
+  wrongAnswer: 0
+  soal: _yst_r
+  soalTemp: 
+  jawabanPanjang:
+  - Ayst_r
+  - Oyst_r
+  - Eyst_r
+  jawabanSingkat:
+  - A
+  - O
+  - E
+  button1: 0
+  button2: 0
+  button3: 0
+  combo: 1
+  lastCombo: 0
+  timeIsUp: 0
+  isPressed: 0
