@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DaniaScript : MonoBehaviour
+public class MinigameHanlder : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameManager gm;
     void Start()
     {
-        
+        gm = GameManager.Instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

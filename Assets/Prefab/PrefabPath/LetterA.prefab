@@ -87,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LetterA
       objectReference: {fileID: 0}
+    - target: {fileID: 4847783402289537521, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.07
+      objectReference: {fileID: 0}
     - target: {fileID: 5788563435238158666, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -131,5 +135,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5926215460313733391, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.136
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926215460313733391, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.409
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+--- !u!1 &4700191122074019089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2040282566334311544, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+  m_PrefabInstance: {fileID: 6731444119638231401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &1378156290295351054
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700191122074019089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.095416844, y: -0.12219155}
+  - {x: 0.09312683, y: 0.15551172}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
