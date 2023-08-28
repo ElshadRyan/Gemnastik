@@ -32,10 +32,10 @@ MonoBehaviour:
   - O
   - B
   - S
-  button1: 0
+  button1: 1
   button2: 0
   button3: 0
   combo: 0
   lastCombo: 1
   timeIsUp: 0
-  isPressed: 0
+  isPressed: 1

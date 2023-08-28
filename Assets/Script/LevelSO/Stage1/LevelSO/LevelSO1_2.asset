@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: LevelSO1_2
   m_EditorClassIdentifier: 
   nextCombo: []
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 0}
   correctAnswer1: 1
   correctAnswer2: 0
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Wh_n
   soalTemp: Wh_n
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
   jawabanPanjang:
   - When
   - Whon

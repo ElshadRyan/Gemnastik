@@ -9,12 +9,12 @@ public class BattleHandler : MonoBehaviour
 {
     GameManager gm;
 
-    private Player player;
     private Sprite soalImages;
-    private WaitAnimation enemyWaitAnim;
-    private WaitAnimation playerWaitAnim;
     public Sprite images;
 
+    [SerializeField] private WaitAnimation playerWaitAnim;
+    [SerializeField] private WaitAnimation enemyWaitAnim;
+    [SerializeField] private Player player;
     [SerializeField] private Transform playerGameObject;
     [SerializeField] private HPFill enemyHealthBar;
     [SerializeField] private HPFill playerHealthBar;

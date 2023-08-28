@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: LevelSO1_1
   m_EditorClassIdentifier: 
   nextCombo: []
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 0}
   correctAnswer1: 0
   correctAnswer2: 1
   correctAnswer3: 0
   wrongAnswer: 0
   soal: Wh_t
   soalTemp: Wh_t
-  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
   jawabanPanjang:
   - Whut
   - What
@@ -29,9 +30,9 @@ MonoBehaviour:
   - A
   - E
   button1: 0
-  button2: 0
+  button2: 1
   button3: 0
   combo: 0
   lastCombo: 0
   timeIsUp: 0
-  isPressed: 0
+  isPressed: 1
