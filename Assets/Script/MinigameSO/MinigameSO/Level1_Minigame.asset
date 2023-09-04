@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0043be24dff204478ab6c8dd614ce9c, type: 3}
+  m_Name: Level1_Minigame
+  m_EditorClassIdentifier: 
+  letterPath:
+  - {fileID: 4678441297459023857, guid: af81162d6a38aaa4da4cdd5201b9b012, type: 3}
+  - {fileID: 8433680013092551925, guid: 2ee033e9b47547d41a36e84872afa9e5, type: 3}
+  - {fileID: 4775045912272580413, guid: 78f96dd9b5d7c9f4ebf9999ef095586a, type: 3}
+  - {fileID: 3480184851198487569, guid: d868fb02604b53c4abc3a4cd1eba5df9, type: 3}
+  - {fileID: 5419227855030240318, guid: 7f2ae04df3f4b6a459634d62ffe041ac, type: 3}
+  hurufUI: 61006900750065006f00

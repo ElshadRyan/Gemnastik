@@ -30,9 +30,9 @@ MonoBehaviour:
   - A
   - E
   button1: 0
-  button2: 1
+  button2: 0
   button3: 0
   combo: 0
   lastCombo: 0
   timeIsUp: 0
-  isPressed: 1
+  isPressed: 0

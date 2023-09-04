@@ -21,7 +21,11 @@ public class NPCInteract : MonoBehaviour
         {
             ChangeScene();                        
         }
-        if (yesButton)
+        if (yesButton && gm.stage > 0)
+        {
+            SceneManager.LoadScene("MinigameScene");
+        }
+        else if(yesButton && gm.stage == 0)
         {
             SceneManager.LoadScene("Battle_Scene");
         }

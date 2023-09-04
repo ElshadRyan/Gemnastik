@@ -76,7 +76,7 @@ public class CutsceneHandler : MonoBehaviour
             else
             {
                 PlayerPrefs.SetInt("CutsceneEnd", 1);
-                SceneManager.LoadScene("WorldMap");
+                SceneManager.LoadScene("MinigameScene");
             }
 
             textCutscene = canvas[canvasCount].GetComponentInChildren<TextMeshProUGUI>();
