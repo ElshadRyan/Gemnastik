@@ -12,6 +12,7 @@ public class MinigameHanlder : MonoBehaviour
     [SerializeField] private PlayerCircle playerCircle;
     [SerializeField] private PlayerCircleSpawn pathGameObject;
     [SerializeField] private TextMeshProUGUI textBehind;
+    [SerializeField] private TextMeshProUGUI textBoard;
 
     public bool minigameAdd;
     public int levelMinigame = 0;
@@ -82,12 +83,15 @@ public class MinigameHanlder : MonoBehaviour
         pause = true;
         destroy = true;
         textBehind.gameObject.SetActive(true);
+        textBoard.gameObject.SetActive(true);
         textBehind.text = minigameStageSO.stageMinigameSO[gm.stage].hurufUI[levelMinigame].ToString();
+        textBoard.text = minigameStageSO.stageMinigameSO[gm.stage].hurufUI[levelMinigame].ToString();
     }
 
     public void TextDisapear()
     {
         textBehind.gameObject.SetActive(false);
+        textBoard.gameObject.SetActive(false);
 
     }
 
