@@ -283,9 +283,29 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[33].y
       value: 2.0843606
       objectReference: {fileID: 0}
+    - target: {fileID: 892941663379222729, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cace39d141767b4e8c4f16c6060c6d5, type: 3}
     - target: {fileID: 2127895099114112664, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_Name
       value: LetterF
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.454
       objectReference: {fileID: 0}
     - target: {fileID: 4847783402289537521, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_LocalPosition.x

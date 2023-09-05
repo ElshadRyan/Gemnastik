@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[14].y
       value: -3.0040102
       objectReference: {fileID: 0}
+    - target: {fileID: 892941663379222729, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1069f6fc96d2a304091b0a5cc1912b46, type: 3}
     - target: {fileID: 2127895099114112664, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_Name
       value: LetterG
@@ -150,6 +154,14 @@ PrefabInstance:
     - target: {fileID: 2426602762834060687, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_Points.Array.data[1].y
       value: -0.19602455
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3799614188944438208, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4847783402289537521, guid: 43fbbfbb5c8df1f47bc09e3d53176808, type: 3}
       propertyPath: m_LocalPosition.x

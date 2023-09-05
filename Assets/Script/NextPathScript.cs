@@ -17,7 +17,7 @@ public class NextPathScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            minigameHanlder.NextLevel();
+            minigameHanlder.TextApear();
         }
     }
 }

@@ -14,23 +14,39 @@ public class MinigameHanlder : MonoBehaviour
     [SerializeField] private TextMeshProUGUI textBehind;
 
     public bool minigameAdd;
-
     public int levelMinigame = 0;
     public int totalStringOnLevel;
+
+    private bool pause;
+    private bool destroy;
+    private float pauseTime;
     void Start()
     {
         gm = GameManager.Instance;
         totalStringOnLevel = minigameStageSO.stageMinigameSO[gm.stage].letterPath.Length;
+        pause = false;
+        pauseTime = 1f;
         SpawnPath();
     }
 
-    public void NextLevel()
+    private void Update()
     {
-        if(levelMinigame < totalStringOnLevel - 1)
+        if(pause)
         {
-            if (minigameAdd)
+            if(destroy)
             {
                 DestroyPath();
+                destroy = false;
+            }
+            Pause();
+        }
+    }
+    public void NextLevel()
+    {        
+        if (levelMinigame < totalStringOnLevel - 1)
+        {
+            if (minigameAdd && !pause)
+            {
                 levelMinigame++;
                 Debug.Log(levelMinigame);
                 SpawnPath();
@@ -45,13 +61,12 @@ public class MinigameHanlder : MonoBehaviour
         {
             SceneManager.LoadScene("Battle_Scene");
         }
-               
+
     }
 
     public void SpawnPath()
     {
         Instantiate(minigameStageSO.stageMinigameSO[gm.stage].letterPath[levelMinigame], spawnPathTransform);
-        textBehind.text = minigameStageSO.stageMinigameSO[gm.stage].hurufUI[levelMinigame].ToString();
     }
 
     public void DestroyPath()
@@ -62,4 +77,34 @@ public class MinigameHanlder : MonoBehaviour
         Destroy(pathGameObject.gameObject);
     }
 
+    public void TextApear()
+    {
+        pause = true;
+        destroy = true;
+        textBehind.gameObject.SetActive(true);
+        textBehind.text = minigameStageSO.stageMinigameSO[gm.stage].hurufUI[levelMinigame].ToString();
+    }
+
+    public void TextDisapear()
+    {
+        textBehind.gameObject.SetActive(false);
+
+    }
+
+    public void Pause()
+    {
+        if(pauseTime >= 0)
+        {
+            pauseTime -= Time.deltaTime;
+            Debug.Log(pauseTime);
+        }
+        else
+        {
+            pause = false;
+            NextLevel();
+            pauseTime = 1f;
+            TextDisapear();
+        }
+    }
+    
 }
