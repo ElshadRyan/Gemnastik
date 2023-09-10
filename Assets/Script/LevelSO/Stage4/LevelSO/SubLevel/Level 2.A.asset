@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
+  m_Name: Level 2.A
+  m_EditorClassIdentifier: 
+  nextCombo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: 92fc1a62457f0c84899fb8e57f3758a5, type: 3}
+  correctAnswer1: 0
+  correctAnswer2: 0
+  correctAnswer3: 1
+  wrongAnswer: 0
+  soal: Si_ar
+  soalTemp: Si_ar
+  jawabanPanjang:
+  - Sizar
+  - Siyar
+  - Sitar
+  jawabanSingkat:
+  - Z
+  - Y
+  - T
+  button1: 0
+  button2: 0
+  button3: 0
+  combo: 0
+  lastCombo: 1
+  timeIsUp: 0
+  isPressed: 0

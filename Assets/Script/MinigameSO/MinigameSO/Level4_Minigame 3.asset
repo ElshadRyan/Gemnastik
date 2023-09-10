@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0043be24dff204478ab6c8dd614ce9c, type: 3}
+  m_Name: Level4_Minigame 3
+  m_EditorClassIdentifier: 
+  letterPath:
+  - {fileID: 1225586021852438034, guid: d80b9e836b53ded44bd04d181e61f74f, type: 3}
+  - {fileID: 8489306249487232166, guid: cdac90d30b5e3b745bd625b1a29bfcef, type: 3}
+  - {fileID: 4596349254817046076, guid: 551c757fe6efda344a4dbfbfcdb6b385, type: 3}
+  - {fileID: 2446426552633671211, guid: 8d5895c243096b244ae8530069e97d18, type: 3}
+  - {fileID: 110310913899301761, guid: 5035cf5baf11d6b47b4527e7a68a5426, type: 3}
+  - {fileID: 1103836391020101457, guid: aa882120e9e0926489ef6b66840d9308, type: 3}
+  - {fileID: 7341399491200886976, guid: 20e5fac54ae7fd349bed7e83792e96cc, type: 3}
+  - {fileID: 1236731212300646465, guid: 6a1655f4f0116b64685bb483fb52e703, type: 3}
+  - {fileID: 831370149193360265, guid: 659de40dd70a4e2459f351b4bf749bc6, type: 3}
+  hurufUI: 710072007300740076007700780079007a00

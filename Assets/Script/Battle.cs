@@ -22,9 +22,4 @@ public class Battle : MonoBehaviour
         transform.position = new Vector3(-4, 0, 0);
     }
 
-    IEnumerator AnimationTiming()
-    {
-        yield return new WaitForSeconds(.5f);
-        player.AttackAnimation(false);
-    }
 }

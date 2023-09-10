@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc516aac4805c3f47abb708e89a0060b, type: 3}
+  m_Name: Level 7.A
+  m_EditorClassIdentifier: 
+  nextCombo:
+  - {fileID: 11400000, guid: 922714b5e4d67c445a750d16c8354204, type: 2}
+  - {fileID: 11400000, guid: 2218e775bcf6f184ea8875f054a83c81, type: 2}
+  - {fileID: 11400000, guid: 67ed9ff46df8fbb48bec087aa5833916, type: 2}
+  imageJawaban: {fileID: 21300000, guid: 2643020b73176fe40999a36bd19386c6, type: 3}
+  imageSoal: {fileID: 21300000, guid: eafe15a65cf0db14d92b977d4341d3a2, type: 3}
+  correctAnswer1: 0
+  correctAnswer2: 1
+  correctAnswer3: 0
+  wrongAnswer: 0
+  soal: Wind Chi__s
+  soalTemp: Wind Chi__s
+  jawabanPanjang:
+  - Wind Chij_s
+  - Wind Chim_s
+  - Wind Chif_s
+  jawabanSingkat:
+  - J
+  - M
+  - F
+  button1: 0
+  button2: 0
+  button3: 0
+  combo: 1
+  lastCombo: 0
+  timeIsUp: 0
+  isPressed: 0

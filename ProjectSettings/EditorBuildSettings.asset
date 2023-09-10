@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4823ab54d4e6c604aaeac63c8dc4cc45
+  - enabled: 1
     path: Assets/Scenes/WorldMap.unity
     guid: 948219ac153478b4e8f5ece5da481e10
   - enabled: 1
     path: Assets/Scenes/Battle_Scene.unity
     guid: 094b89aedcb29ea448f1512103eb835a
+  - enabled: 1
+    path: Assets/Scenes/Ensiklopedia.unity
+    guid: e8d205110ae31d7438ff68eacbf770a3
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 9c377c2879854024d92da21478993ce9
+  - enabled: 1
+    path: Assets/Scenes/MinigameScene.unity
+    guid: 2a679a4f57deb5b4daa53e2ce3e03c0b
   m_configObjects: {}
