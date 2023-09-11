@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Scene6
   m_EditorClassIdentifier: 
   cutsceneWord:
-  - 'Ms.Dania: And the last three are X Y and Z'
-  - 'Ms.Dania: Now that we''ve learned the alphabet, we are going to play a little
-    game i like to call Odessey'
+  - And the last three are X Y and Z
+  - Now that we've learned the alphabet, we are going to play a little game i like
+    to call Odessey

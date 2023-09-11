@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Scene1
   m_EditorClassIdentifier: 
   cutsceneWord:
-  - 'Ms.Dania: Good morning children'
-  - 'Children: Morning miss'
-  - 'Ms.Dania: Today, we are going to learn the alphabets of the official Indonesian
-    sign language called BISINDO'
-  - 'Children: Okay'
+  - Good morning children
+  - Today, we are going to learn the alphabets of the official Indonesian sign language
+    called BISINDO

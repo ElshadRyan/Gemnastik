@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Scene2
   m_EditorClassIdentifier: 
   cutsceneWord:
-  - 'Ms.Dania: This is how letter A I U E O looks like in BISINDO'
-  - 'Ms.Dania: This letters are called volwels'
+  - This is how letter A I U E O looks like in BISINDO
+  - This letters are called volwels

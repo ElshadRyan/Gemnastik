@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Scene3
   m_EditorClassIdentifier: 
   cutsceneWord:
-  - 'Ms.Dania: Next we have B C D F G H'
-  - 'Ms.Dania: The remaining letters beside A I U E O are called consonants'
+  - Next we have B C D F G H
+  - The remaining letters beside A I U E O are called consonants
