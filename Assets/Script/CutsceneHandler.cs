@@ -20,7 +20,6 @@ public class CutsceneHandler : MonoBehaviour
     {
         textCutscene = canvas[canvasCount].GetComponentInChildren<TextMeshProUGUI>();
         StartDialogue();
-        FindAnyObjectByType<TextMeshProUGUI>();
     }
 
     private void Update()
