@@ -1515,10 +1515,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00af4ed7ab6b4fa499858c1480b79c34, type: 2}
   stageSOTemp: {fileID: 0}
   prefabEnemy:
-  - {fileID: 3119353413605488251, guid: 980988fa06de57b46a4f35e6410bc55c, type: 3}
-  - {fileID: 5537167310771862487, guid: f5d3cc4eeabd04a4484ef67c6f16fec6, type: 3}
+  - {fileID: 1689533296102843996, guid: 81182455d6445874281a4bfa9839dbe6, type: 3}
+  - {fileID: 5522415816852011685, guid: 844a9b3731175f4429d4ac3b6acbad0c, type: 3}
   - {fileID: 732273011156118550, guid: 848b6e3f3df727b4fa9cf6f62a21fb6a, type: 3}
-  - {fileID: 2553614955098585005, guid: 4f25786ba92701f4eb72d49db52588de, type: 3}
+  - {fileID: 2528244233356463487, guid: b29d6d86309692e4cbeb8d605dec2484, type: 3}
   randomInstantiate: {fileID: 1546358822}
   textSoal: {fileID: 1802067147}
   pressSpace: {fileID: 45110712}

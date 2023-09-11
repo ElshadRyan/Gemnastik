@@ -11,10 +11,15 @@ public class CutsceneHandler : MonoBehaviour
     [SerializeField] private CutsceneWordSO[] cutsceneWordSO;
     [SerializeField] private string[] cutsceneWord;
     [SerializeField] private float textSpeed;
+    [SerializeField] private TextMeshProUGUI bisindoText;
+    [SerializeField] private TextMeshProUGUI chalkText;
+    [SerializeField] private Canvas worldCanvas;
+    [SerializeField] private string[] text;
 
     private int index;
     private int canvasCount;
     private int indexCountInSO;
+    private bool canvasCountIndex;
 
     private void Start()
     {
@@ -37,6 +42,7 @@ public class CutsceneHandler : MonoBehaviour
                 textCutscene.text = cutsceneWord[index];
             }
         }
+        TextOnBoard();
     }
 
     public void StartDialogue()
@@ -68,6 +74,7 @@ public class CutsceneHandler : MonoBehaviour
         {
             if (canvasCount < canvas.Length - 1)
             {
+                canvasCountIndex = true;
                 canvas[canvasCount].gameObject.SetActive(false);
                 canvasCount++;
                 canvas[canvasCount].gameObject.SetActive(true);
@@ -94,5 +101,26 @@ public class CutsceneHandler : MonoBehaviour
         {
             cutsceneWord[i] = cutsceneWordSO[canvasCount].cutsceneWord[i];
         }
+    }
+
+    public void TextOnBoard()
+    {
+        if(canvasCount > 0)
+        {
+            worldCanvas.gameObject.SetActive(true);
+        }
+
+        if(canvasCount > 5)
+        {
+            worldCanvas.gameObject.SetActive(false);
+        }
+
+        if (canvasCountIndex && canvasCount <= 5) 
+        {
+            bisindoText.text = text[canvasCount];
+            chalkText.text = text[canvasCount];
+            canvasCountIndex = false;
+        }
+
     }
 }

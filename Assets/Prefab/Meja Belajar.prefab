@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6105251935189035171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6105251935189035180}
+  m_Layer: 0
+  m_Name: Meja Belajar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6105251935189035180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105251935189035171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5154702227165856655}
+  - {fileID: 5154702227543281038}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6105251935254630936
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6105251935189035180}
+    m_Modifications:
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598412017490837931, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_Name
+      value: MejaBelajar
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+--- !u!4 &5154702227165856655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+  m_PrefabInstance: {fileID: 6105251935254630936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6105251935766273049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6105251935189035180}
+    m_Modifications:
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5799999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598412017490837931, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+      propertyPath: m_Name
+      value: MejaBelajar (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+--- !u!4 &5154702227543281038 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1383475987466719639, guid: 26391a8caa6449345a095fd6e85d5baf, type: 3}
+  m_PrefabInstance: {fileID: 6105251935766273049}
+  m_PrefabAsset: {fileID: 0}
